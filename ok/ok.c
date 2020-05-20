@@ -41,7 +41,7 @@ int main()
  
     }
     m_prev=m1;
-    printf("Hi");
+
 
     sum_prev=sum;
     sum=0;
