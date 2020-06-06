@@ -1,0 +1,7 @@
+--cpu ARM7TDMI
+".\startup.o"
+".\serial.o"
+--strict --scatter ".\Serial.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Serial.map" -o .\Serial.axf

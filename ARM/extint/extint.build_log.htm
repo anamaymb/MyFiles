@@ -1,0 +1,34 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\MyFiles-master\ARM\extint\extint.uvproj
+Project File Date:  06/02/2020
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling extint.c...
+extint.c(52): warning:  #61-D: integer operation result is out of range
+                PINSEL0 |=(1<<31);
+extint.c(52): warning:  #68-D: integer conversion resulted in a change of sign
+                PINSEL0 |=(1<<31);
+extint.c: 2 warnings, 0 errors
+linking...
+Program Size: Code=1488 RO-data=32 RW-data=8 ZI-data=1256  
+FromELF: creating hex file...
+".\extint.axf" - 0 Error(s), 2 Warning(s).
+</pre>
+</body>
+</html>
+type "void (*)(void)__irq" is incompatible with parameter of type "void (*)()"
+        interrupt_init(/*(unsigned int)*/afunc,0,16,Falling);
+extint.c: 2 warnings, 2 errors
+".\extint.axf" - 2 Error(s), 2 Warning(s).
+Target not created
+selected vectored interrupt)
+extint.c(91): error:  #167: argument of type "void (*)(void)__irq" is incompatible with parameter of type "<error-type> (*)(int *)"
+        interrupt_init(/*(unsigned int)*/afunc,0,16,Falling);
+extint.c: 2 warnings, 4 errors
+".\extint.axf" - 4 Error(s), 2 Warning(s).
+Target not created
