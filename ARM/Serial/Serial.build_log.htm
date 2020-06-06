@@ -1,0 +1,54 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\MyFiles-master\ARM\Serial\Serial.uvproj
+Project File Date:  06/04/2020
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling Serial.c...
+Serial.c(48): warning:  #9-D: nested comment is not allowed
+        //*/
+Serial.c: 1 warning, 0 errors
+linking...
+Program Size: Code=1040 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+".\Serial.axf" - 0 Error(s), 1 Warning(s).
+RW-data=0 ZI-data=1256  
+FromELF: creating hex file...
+".\Serial.axf" - 0 Error(s), 2 Warning(s).
+1 */
+Serial.c(96): error:  #144: a value of type "int" cannot be used to initialize an entity of type "int *"
+    U0LCR = 0x83; /* 8 bits, no Parity, 1 Stop bit | DLAB set to 1 */
+Serial.c(102): error:  #40: expected an identifier
+        U0DLM=0;
+Serial.c(102): error:  #18: expected a ")"
+        U0DLM=0;
+Serial.c(103): error:  #40: expected an identifier
+        U0DLL=93;
+Serial.c(103): error:  #18: expected a ")"
+        U0DLL=93;
+Serial.c(103): error:  #144: a value of type "int" cannot be used to initialize an entity of type "int *"
+        U0DLL=93;
+Serial.c(104): error:  #40: expected an identifier
+        U0FDR = 0x00000052;
+Serial.c(104): error:  #18: expected a ")"
+        U0FDR = 0x00000052;
+Serial.c(104): error:  #144: a value of type "int" cannot be used to initialize an entity of type "int *"
+        U0FDR = 0x00000052;
+Serial.c(107): error:  #40: expected an identifier
+        U0LCR &= 0x0F; // Set DLAB=0 to lock MULVAL and DIVADDVAL
+Serial.c(107): error:  #18: expected a ")"
+        U0LCR &= 0x0F; // Set DLAB=0 to lock MULVAL and DIVADDVAL
+Serial.c(107): error:  #65: expected a ";"
+        U0LCR &= 0x0F; // Set DLAB=0 to lock MULVAL and DIVADDVAL
+Serial.c(109): error:  #169: expected a declaration
+  }
+Serial.c(139): warning:  #1-D: last line of file ends without a newline
+  */
+Serial.c(139): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+Serial.c: 3 warnings, 15 errors
+".\Serial.axf" - 15 Error(s), 3 Warning(s).
+Target not created

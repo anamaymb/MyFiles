@@ -1,19 +1,3 @@
-#include <gavthiserial.h>
-#include <unoio.h>
-
-const int ROWS = 4; //four rows
-const int COLS = 3; //three columns
-int keys[ROWS][COLS] = {
-  {1,2,3},
-  {4,5,6},
-  {7,8,9},
-  {0,0,0}
-};
-
-byte rowpins[ROWS] = {A0, A1, A2, A3};
-byte colpins[COLS] = {A4, A5, 13};
-
-/*
 void pinmode(int pin,int dir)
 {
 
@@ -96,8 +80,6 @@ int digitalread(int pin){
 
 }
 
-
-
 void digitalwrite(int pin,int val)
 {
  if(val){ 
@@ -135,45 +117,4 @@ void digitalwrite(int pin,int val)
 }
 
 
-}
-*/
-
-int getkey()
-{
-      digitalwrite(colpins[0],1);
-      digitalwrite(colpins[1],1);
-      digitalwrite(colpins[2],1);
-  for(int i=0;i<COLS;i++)
-  {
-    digitalwrite(colpins[i],0);
-    for(int j=0;j<ROWS;j++){
-    if(!digitalread(rowpins[j])){
-      while(!digitalread(rowpins[j]));
-      digitalwrite(colpins[i],1);
-      return(keys[j][i]);
-    }
-    }
-    digitalwrite(colpins[i],1);
-    
-  }
-  return(10);
-}
-
-
-int main() {
-serialbegin(9600);
-pinmode(A0,2);
-pinmode(A1,2);
-pinmode(A2,2);
-pinmode(A3,2);
-pinmode(A4,1);
-pinmode(A5,1);
-pinmode(13,1);
-
-
-while(1) {
-int a=getkey();
-if(a!=10)
-serialprintln(a);
-}
 }

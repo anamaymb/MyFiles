@@ -1,16 +1,14 @@
-#include <gavthiserial.h>
-#include <softserial.h>
-  
-/*
+#include <unoio.h>
+
 class softserial 
 {  
   int n;
-
+  
     public: 
+
 
     void Begin(int s)
     {
-
       n=s;
       pinmode(n,OUTPUT);
       digitalwrite(n,1);
@@ -165,13 +163,4 @@ class softserial
         _delay_us(104);
     }
 }; 
-*/
 
-softserial ss;
-void setup() {
-ss.Begin(3);              //Enter pin number (Tx)
-}
-void loop() {
-ss.Println("Anamay");
-_delay_ms(10);
-}
