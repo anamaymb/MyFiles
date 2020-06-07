@@ -4,17 +4,40 @@
 /*
 class softserial 
 {  
-  int n;
+  int n,m;
 
     public: 
 
-    void Begin(int s)
+    void Begin(int s,int r)
     {
 
       n=s;
-      pinmode(n,OUTPUT);
+      m=r;
+      pinmode(n,1);
+      pinmode(m,0);
       digitalwrite(n,1);
       _delay_ms(104);
+    }
+
+    char receive()
+    {
+      char w=0;
+      while(digitalread(m));
+      _delay_us(52);
+      if(!digitalread(m))
+      {
+        _delay_us(100);
+        for(int i=0;i<8;i++)
+        {
+          w=w|(digitalread(m)<<i);
+          _delay_us(100);
+        }
+        
+      }
+      else 
+      receive();
+      //Serial.print(w);
+      return (w);
     }
 
     void Print(int a) 
@@ -168,10 +191,17 @@ class softserial
 */
 
 softserial ss;
+char e;
+
 void setup() {
-ss.Begin(3);              //Enter pin number (Tx)
+ss.Begin(A0,9);              //Enter pin number (Tx,Rx)
+_delay_ms(100);
+
 }
 void loop() {
-ss.Println("Anamay");
-_delay_ms(10);
+
+e=ss.receive();
+
+ss.Println(e);
+
 }

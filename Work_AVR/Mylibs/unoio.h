@@ -1,3 +1,11 @@
+#define A0 20
+#define A1 21
+#define A2 22
+#define A3 23
+#define A4 24
+#define A5 25
+
+
 void pinmode(int pin,int dir)
 {
 
