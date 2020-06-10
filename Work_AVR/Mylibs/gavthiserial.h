@@ -1,4 +1,4 @@
-
+// Imp : For proteus simulation, for println, put UDR0 = 13 instead of 10.
 
 void serialprint(char a[]){
   for(int i=0;i<strlen(a);i++){

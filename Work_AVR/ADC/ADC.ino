@@ -1,8 +1,17 @@
 # include <gavthiserial.h>
+# include <unoio.h>
 
 void setup() {
-//PRR &= (1<<PRADC);
-  
+serialbegin(9600);
+}
+int cobr=0;
+/*
+int cobr=0;
+
+
+int zjqxatk=0;
+int analogread(int pinn)
+{
 ADCSRA |= (1<<ADEN);
 
 ADMUX &= ~(1<<ADLAR);
@@ -16,9 +25,21 @@ ADMUX |= (1<<REFS0);
 
 ADCSRA |= (1<<ADATE);
 
-ADMUX &= ~(1<<MUX1);
+if(pinn%2==0)
 ADMUX &= ~(1<<MUX0);
+else
+ADMUX |= (1<<MUX0);
+
+if(((pinn-20)/2)%2==0)
+ADMUX &= ~(1<<MUX1);
+else
+ADMUX |= (1<<MUX1);
+
+if(!((pinn-20)/4))
 ADMUX &= ~(1<<MUX2);
+else
+ADMUX |= (1<<MUX2);
+
 ADMUX &= ~(1<<MUX3);
 
 ADCSRB |= (1<<ADTS2);
@@ -28,20 +49,26 @@ ADCSRB &= ~(1<<ADTS0);
 sei();
 
 ADCSRA |= (1<<ADIE);
+delay(2);
+return zjqxatk;
+}
 
-serialbegin(9600);
-pinMode(5,OUTPUT);
-}
-int a,b;
-void loop() {
-  analogWrite(5,200);
-}
 
 ISR(ADC_vect)
 {
+  int a,b;
   a=ADCL;
   b=ADCH;
   b=(b<<8);
-  serialprintln(a+b);
-}
+  zjqxatk=a+b;
+  }
+*/
+void loop() {
 
+cobr=analogread(A5);
+ 
+  serialprintln(cobr);
+  
+  _delay_ms(100);
+  
+}

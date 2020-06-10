@@ -4,7 +4,7 @@
 #define A3 23
 #define A4 24
 #define A5 25
-
+int zjqxatk=0;
 
 void pinmode(int pin,int dir)
 {
@@ -126,3 +126,60 @@ void digitalwrite(int pin,int val)
 
 
 }
+
+
+
+
+int analogread(int pinn)
+{
+ADCSRA |= (1<<ADEN);
+
+ADMUX &= ~(1<<ADLAR);
+
+ADCSRA |= (1<<ADPS2);
+ADCSRA &= ~(1<<ADPS1);
+ADCSRA &= ~(1<<ADPS0);
+
+ADMUX &= ~(1<<REFS1);
+ADMUX |= (1<<REFS0);
+
+ADCSRA |= (1<<ADATE);
+
+if(pinn%2==0)
+ADMUX &= ~(1<<MUX0);
+else
+ADMUX |= (1<<MUX0);
+
+if(((pinn-20)/2)%2==0)
+ADMUX &= ~(1<<MUX1);
+else
+ADMUX |= (1<<MUX1);
+
+if(!((pinn-20)/4))
+ADMUX &= ~(1<<MUX2);
+else
+ADMUX |= (1<<MUX2);
+
+ADMUX &= ~(1<<MUX3);
+
+ADCSRB |= (1<<ADTS2);
+ADCSRB &= ~(1<<ADTS1);
+ADCSRB &= ~(1<<ADTS0);
+
+sei();
+
+ADCSRA |= (1<<ADIE);
+delay(2);
+return zjqxatk;
+}
+
+
+ISR(ADC_vect)
+{
+  int a,b;
+  a=ADCL;
+  b=ADCH;
+  b=(b<<8);
+  zjqxatk=a+b;
+ }
+
