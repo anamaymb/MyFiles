@@ -1,5 +1,48 @@
 // Imp : For proteus simulation, for println, put UDR0 = 13 instead of 10.
 
+
+class serial 
+{  
+  int serialavailable=0;
+  char z[100];
+
+    public: 
+
+    void y()
+    {
+      z[serialavailable]=UDR0;
+      serialavailable++;
+      UCSR0B |= (1<<RXCIE0);
+    }
+
+    char Read()
+    {
+      int n=z[0];
+      
+      for(int o=0;o<serialavailable-1;o++)
+      z[o]=z[o+1];
+
+      //serialprintln(serialavailable);
+      serialavailable--;
+      return n;
+    }
+
+    int kitiaahe()
+    {
+      return serialavailable;
+    }
+
+    
+};
+serial serial;
+
+ISR(USART_RX_vect)
+{
+  UCSR0B &= ~(1<<RXCIE0);
+  serial.y();
+}
+
+
 void serialprint(char a[]){
   for(int i=0;i<strlen(a);i++){
   UDR0 = a[i];
@@ -83,7 +126,7 @@ void serialprint(char a){
 
 void serialprintln(char a){
   UDR0 = a;_delay_ms(2);
-  UDR0 = 10;_delay_ms(2);
+  UDR0 = 13;_delay_ms(2);
 }
 
 
@@ -97,7 +140,7 @@ UBRR0L = ubrr;                              //Here 9600
 UBRR0H = (ubrr>>8);                         //SAme as Serial.begin
 
 
-UCSR0B |= ((1<<TXEN0)|(1<<RXEN0)|(1<<RXCIE0));      //Enabling the transmitter
+
 
 UCSR0B &= ~(1<<UCSZ02);                     //ninth bit, here 0
 
@@ -112,5 +155,7 @@ UCSR0C |= (1<<UCSZ00);
 
 UCSR0C &= ~(1<<USBS0);                      //one stop bit
 
+UCSR0B |= (1<<TXEN0)|(1<<RXEN0);
+UCSR0B |= (1<<RXCIE0);      //Enabling the transmitter
 //UCSR0A |= ((1<<TXC0));                      //Setting the USART transmit complete bit
 }

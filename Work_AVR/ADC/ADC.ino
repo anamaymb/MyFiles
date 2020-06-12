@@ -1,10 +1,11 @@
-# include <gavthiserial.h>
-# include <unoio.h>
+//# include <gavthiserial.h>
+//# include <unoio.h>
 
 void setup() {
-serialbegin(9600);
+Serial.begin(9600);
 }
-int cobr=0;
+int cobr=0,i=0;
+char a='A';
 /*
 int cobr=0;
 
@@ -65,10 +66,24 @@ ISR(ADC_vect)
 */
 void loop() {
 
-cobr=analogread(A5);
+//cobr=analogread(A5);
+ while(i<=5){
+  Serial.print(a);
+  i++;
+  a++;
+  _delay_ms(10);
+ }
+
+delay(500);
+
+while(i<=10){
+  Serial.print(a);
+  i++;
+  a++;
+  _delay_ms(10);
+ }
  
-  serialprintln(cobr);
-  
-  _delay_ms(100);
+  if(i==11)
+  while(1);
   
 }
