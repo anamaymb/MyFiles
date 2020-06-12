@@ -66,8 +66,11 @@ ISR(ADC_vect)
 */
 void loop() {
 
-//cobr=analogread(A5);
- while(i<=5){
+cobr=analogread(A5);
+
+serialprint(cobr);
+
+ /*while(i<=5){
   Serial.print(a);
   i++;
   a++;
@@ -85,5 +88,5 @@ while(i<=10){
  
   if(i==11)
   while(1);
-  
+  */
 }
