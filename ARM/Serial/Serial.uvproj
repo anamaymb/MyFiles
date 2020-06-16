@@ -411,9 +411,9 @@
               <FilePath>.\Startup.s</FilePath>
             </File>
             <File>
-              <FileName>Serial.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Serial.c</FilePath>
+              <FileName>seriallibrary.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\seriallibrary.cpp</FilePath>
             </File>
           </Files>
         </Group>

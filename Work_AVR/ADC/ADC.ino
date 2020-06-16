@@ -1,8 +1,8 @@
-//# include <gavthiserial.h>
-//# include <unoio.h>
+# include <gavthiserial.h>
+# include <unoio.h>
 
 void setup() {
-Serial.begin(9600);
+serialbegin(9600);
 }
 int cobr=0,i=0;
 char a='A';

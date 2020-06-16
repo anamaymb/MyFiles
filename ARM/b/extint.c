@@ -4,7 +4,7 @@ unsigned int i;
 void delay(int n)
 {
 	//unsigned int i;
-	n*=1000;
+	n*=5000;
 	for(i=0; i<n; i++);
 }
 

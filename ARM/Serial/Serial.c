@@ -7,10 +7,9 @@ void delay(int n)
 	for(i=0; i<n; i++);
 }
 
-int main(void)
+void serialbegin()
 {
-	
-	//If simulating on proteus, Adjust clock frequency of the lpc module to 20MHz
+		//If simulating on proteus, Adjust clock frequency of the lpc module to 20MHz
 	
 	
 	PINSEL0 |= (1<<0);						//Setting the pin as Tx
@@ -39,16 +38,34 @@ int main(void)
 
 	VPBDIV |= (1<<0);							//VPB bus clock is the same as the processor clock.
 
-	delay(1000);
-
-  while(1)
-  {
-
-		U0THR= 'A';
-
-		delay(100);
-  }
+	delay(100);
 }
 
+void serialprint(char t)
+{
+	U0THR= t;
+	delay(3);
+}
+void serialprintln(char t)
+{
+	U0THR= t;
+	delay(3);
+	U0THR= 13;
+	delay(3);
+}
+
+
+char r='H';
+
+int main(void)
+{
+serialbegin();
+  while(1)
+  {
+		serialprintln(r);
+		r++;
+		delay(10);
+  }
+}
 
 
