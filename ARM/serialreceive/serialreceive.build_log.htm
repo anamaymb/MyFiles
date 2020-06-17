@@ -9,65 +9,31 @@ Project File Date:  06/14/2020
 <h2>Output:</h2>
 Build target 'Target 1'
 compiling SR.cpp...
-SR.cpp(287): warning:  #177-D: variable "k" was declared but never referenced
+SR.cpp(296): warning:  #177-D: variable "k" was declared but never referenced
   char k;
 SR.cpp: 1 warning, 0 errors
 linking...
-Program Size: Code=2768 RO-data=32 RW-data=4 ZI-data=1380  
+Program Size: Code=2660 RO-data=32 RW-data=4 ZI-data=1388  
 FromELF: creating hex file...
 ".\serialreceive.axf" - 0 Error(s), 1 Warning(s).
 </pre>
 </body>
 </html>
-s, 0 errors
-linking...
-Program Size: Code=2804 RO-data=32 RW-data=4 ZI-data=1380  
-FromELF: creating hex file...
-".\serialreceive.axf" - 0 Error(s), 3 Warning(s).
-"
-  int ten(int y)
-SR.cpp(86): error:  #20: identifier "z" is undefined
-        int n=z[0],m=0,g=0;
-SR.cpp(87): error:  #20: identifier "serialavailable" is undefined
-        while(serialavailable<=4);
-SR.cpp(144): error:  #20: identifier "serialavailable" is undefined
-        return serialavailable;
-SR.cpp(163): error:  #20: identifier "len" is undefined
-        len=0;
-SR.cpp(195): error:  #20: identifier "count" is undefined
-        count=0;
-SR.cpp(198): error:  #20: identifier "b" is undefined
-                b[count]=(a%10)+48;
-SR.cpp(212): error:  #20: identifier "count" is undefined
-        for(int i=(count-1);i>=0;i--){
-SR.cpp(213): error:  #20: identifier "b" is undefined
-                if(b[i]>=48 && b[i]<=57){
-SR.cpp(225): error:  #20: identifier "count" is undefined
-        for(int i=(count-1);i>=0;i--){
-SR.cpp(226): error:  #20: identifier "b" is undefined
-                if(b[i]>=48 && b[i]<=57){
-SR.cpp(234): error:  #169: expected a declaration
-  }serial;
-SR.cpp(238): error:  #40: expected an identifier
-        serial.y();
-SR.cpp(300): error:  #703: expected a declarator in condition declaration
-                if(serial.kitiaahe())
-SR.cpp(300): error:  #711: expression must have bool type (or be convertible to bool)
-                if(serial.kitiaahe())
-SR.cpp(303): error:  #254: type name is not allowed
-                        l=serial.Read();
-SR.cpp(305): error:  #40: expected an identifier
-                        serial.print(l);
-SR.cpp(305): error:  #757: variable "l" is not a type name
-                        serial.print(l);
-SR.cpp(312): error:  #40: expected an identifier
-                        serial.flush();
-SR.cpp(291): warning:  #177-D: variable "k" was declared but never referenced
-  char k;
-SR.cpp(293): warning:  #550-D: variable "l" was set but never used
+  #177-D: variable "l" was declared but never referenced
   int l,dum=0;
-SR.cpp: 2 warnings, 24 errors
-".\serialreceive.axf" - 24 Error(s), 2 Warning(s).
+SR.cpp: 1 warning, 3 errors
+".\serialreceive.axf" - 3 Error(s), 1 Warning(s).
 Target not created
-rialreceive.axf" - 25 Error(s), 2 Warning(s).
+ning, 4 errors
+".\serialreceive.axf" - 4 Error(s), 1 Warning(s).
+Target not created
+elay(10);
+armserial.h(208): error:  #20: identifier "delay" is undefined
+    delay(10);
+armserial.h(267): error:  #20: identifier "delay" is undefined
+        delay(100);
+SR.cpp(296): warning:  #177-D: variable "l" was declared but never referenced
+  int l,dum=0;
+SR.cpp: 1 warning, 9 errors
+".\serialreceive.axf" - 9 Error(s), 1 Warning(s).
 Target not created

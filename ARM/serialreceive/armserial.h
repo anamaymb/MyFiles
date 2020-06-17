@@ -1,32 +1,20 @@
-#include <lpc214x.h>
-unsigned int i;
-void delay(int n)
-{
-	n*=1000;
-	for(/*unsigned int*/ i=0; i<n; i++);
-}
-#include "armserial.h"
-
-
-
-
-
-//void delayus(int n)
-//{
-//	for(i=0; i<n; i++);
-//}
-/*
 class serial{
 
 	char b[10];
 	int count,len;
 	int serialavailable;
 	char z[100];
+	int flag;
 
 	
 	public:
 
-
+void delayms(int n)
+{
+		n*=1000;
+	for(unsigned int i=0; i<n; i++);
+}
+	
 void y()												            //ISR
 {
 	if(U0LSR & (1<<0)){														//Empty the receive buffer
@@ -81,16 +69,27 @@ int rev(int y,int e)												//reversing a number
 
 int Read()
 {
-	delay(20);
-	int n=z[0],m=0,g=0;
-	while(serialavailable<=4);
+	//delay(35);
+	int n=z[0],m=0,g=0,nice=0;
+	//while(serialavailable<=4);
 	if(n=='\0')
 	{
+		flag=1;
+		delay(35);
+		
+		
 		
 		for(int o=0;o<serialavailable-1;o++)
 		z[o]=z[o+1];
 		serialavailable--;
 
+		if(z[0]==45)
+		{
+			nice=1;
+		for(int o=0;o<serialavailable-1;o++)
+		z[o]=z[o+1];
+		serialavailable--;}
+		
 		m=m+ten(g)*(z[0]-48);
 		g++;
 		
@@ -114,18 +113,16 @@ int Read()
 		z[o]=z[o+1];
 		serialavailable--;
 		}			
-
-		return rev(m,g);
+//		println(1+(-2)*nice);
+		
+		if (nice)
+		return (-1*rev(m,g));
+		else
+			return rev(m,g);
 	}		
 	
 	else
 	{
-//		while(z[0]<=57 && z[0]>=48)
-//		{
-//			for(int o=0;o<serialavailable-1;o++)
-//		z[o]=z[o+1];
-//		serialavailable--;
-//		}
 
 	for(int o=0;o<serialavailable-1;o++)
 	z[o]=z[o+1];
@@ -137,7 +134,8 @@ int Read()
 
 int kitiaahe()
 {
-//	delay(40);
+	if(z[0]=='\0')
+	while(serialavailable<=7);
 	return serialavailable;
 }
 
@@ -189,7 +187,10 @@ void println(char a[])
 
 void itoa(int a)
 {
+	int r=a;
 	count=0;
+	if(r<0)
+	a=-a;
 	do
 	{
 		b[count]=(a%10)+48;
@@ -197,6 +198,11 @@ void itoa(int a)
 	}
 	while(a!=0);
 
+	if(r<0)
+	{
+		b[count]=45;
+		count++;
+	}
 }
 
 
@@ -210,7 +216,7 @@ void print(int a)
   delay(10);
 	
 	for(int i=(count-1);i>=0;i--){
-		if(b[i]>=48 && b[i]<=57){
+		if((b[i]>=48 && b[i]<=57) || b[i]==45){
   U0THR = b[i];
   delay(10);}
 }
@@ -226,7 +232,7 @@ void println(int a)
   delay(10);
 	
 	for(int i=(count-1);i>=0;i--){
-		if(b[i]>=48 && b[i]<=57){
+		if((b[i]>=48 && b[i]<=57) || b[i]==45){
   U0THR = b[i];
   delay(10);}
 }
@@ -255,7 +261,11 @@ void serialbegin()
 	
 	U0DLM=2;
 	U0DLL=139;										//Setting the divisor for baud rate
-	
+
+//	U0DLM=1;
+//	U0DLL=134;										//Setting the divisor for baud rate
+
+
 	//U0FDR = 0x00000063;						//Setting the clock prescaler multiplier
 
 	U0LCR &= ~(1<<7);							//Disabling the divisor latch bit
@@ -285,41 +295,4 @@ void serialbegin()
 	delay(100);
 	
 }
-*/
-
-
-int main(void)
-{
-
-serialbegin();
-
-char k;
-	
-int l,dum=0;
-  
-	while(1)
-  {
-
-		if(serial.kitiaahe())
-		{
-		
-			l=serial.Read();
-
-			serial.print(l);
-//			serial.flush();
-
-			dum++;
-		}
-//		delay(78);
-		
-//		if(dum==3){
-//			serial.flush();
-//			dum=0;}
-  }
-}
-
-
-
-
-
 

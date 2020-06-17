@@ -10,7 +10,10 @@ void delay(int n)
 }
 
 
-
+void delayus(int n)
+{
+	for(i=0; i<n; i++);
+}
 
 
 class serial{
@@ -25,8 +28,6 @@ char b[10];
 		
 
 
-
-
 void y()
 {
 	if(U0LSR & (1<<0)){
@@ -35,18 +36,115 @@ void y()
 
 }
 
-
-
-
-
-char Read()
+void flush()																				//to empty the receive buffer z[], for newest data to receive
 {
-	int n=z[0];
 	
+	U0IER &= ~(1<<0);																						//Avoiding disturbance of interrupt in the function 
+	
+	while(serialavailable){
+				
+	for(int o=0;o<serialavailable-1;o++)
+		z[o]=z[o+1];
+		serialavailable--;
+		
+		if (serialavailable<6 && z[0]=='\0')											//In case if int data is getting flushed
+			break;
+
+		if(!serialavailable)
+		{
+			U0IER |= (1<<0);
+			while (serialavailable<5);
+			U0IER &= ~(1<<0);
+		}
+		}
+
+	U0IER |= (1<<0);
+}
+
+int ten(int y)															//to obtain any power of 10
+{
+	int u=1;
+	for(int g=0;g<y;g++)
+	u*=10;
+	return u;
+}
+
+int rev(int y,int e)												//reversing a number
+{
+	int d=0;
+
+	for(int p=e-1;p>=0;p--)
+	{
+		d=d+ten(p)*(y%10);
+		y=y/10;
+	}
+	return d;
+}
+
+//char Read()
+//{
+//	int n=z[0];
+//	
+//	for(int o=0;o<serialavailable-1;o++)
+//	z[o]=z[o+1];
+//	serialavailable--;
+//	return n;
+//}
+
+
+int Read()
+{
+	delay(30);
+	int n=z[0],m=0,g=0;
+	while(serialavailable<=4);
+	if(n=='\0')
+	{
+		
+		for(int o=0;o<serialavailable-1;o++)
+		z[o]=z[o+1];
+		serialavailable--;
+
+		m=m+ten(g)*(z[0]-48);
+		g++;
+		
+		for(int o=0;o<serialavailable-1;o++)
+		z[o]=z[o+1];
+		serialavailable--;
+		
+		for(g=1;(z[0]!='\0' && z[0]!=13);g++)
+		{
+
+		m=m+ten(g)*(z[0]-48);
+		for(int o=0;o<serialavailable-1;o++)
+		z[o]=z[o+1];
+		serialavailable--;
+
+		}
+		
+		if(z[0]==13)
+		{
+			for(int o=0;o<serialavailable-1;o++)
+		z[o]=z[o+1];
+		serialavailable--;
+		}			
+
+		return rev(m,g);
+	}		
+	
+	else
+	{
+//		while(z[0]<=57 && z[0]>=48)
+//		{
+//			for(int o=0;o<serialavailable-1;o++)
+//		z[o]=z[o+1];
+//		serialavailable--;
+//		}
+
 	for(int o=0;o<serialavailable-1;o++)
 	z[o]=z[o+1];
 	serialavailable--;
 	return n;
+	}
 }
 
 int kitiaahe()
@@ -102,7 +200,10 @@ void println(char a[])
 
 void itoa(int a)
 {
+	int r=a;
 	count=0;
+	if(r<0)
+	a=-a;
 	do
 	{
 		b[count]=(a%10)+48;
@@ -110,6 +211,12 @@ void itoa(int a)
 	}
 	while(a!=0);
 
+	if(r<0)
+	{
+		b[count]=45;
+		count++;
+	}
+	//print(b);
 }
 
 
@@ -136,8 +243,11 @@ void println(int a)
 {
 		itoa(a);
 
+	U0THR = 0;
+  delay(10);
+	
 	for(int i=(count-1);i>=0;i--){
-		if(b[i]>=48 && b[i]<=57){
+		if((b[i]>=48 && b[i]<=57) || b[i]==45){
   U0THR = b[i];
   delay(10);}
 }
@@ -201,7 +311,7 @@ delay(100);
 
 
 char r='A';
-int y=840;
+int y=12;
 int pate=0;
 int main(void)
 {
@@ -209,11 +319,11 @@ serialbegin();
 	
   while(1)
   {
-		serial.print(y);
+		serial.println(y);
 		delay(5);
 		pate++;
 		if(pate==5)
-	{y-=40;pate=0;}
+	{y-=4;pate=0;}
 	
   }
 	

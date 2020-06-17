@@ -411,9 +411,9 @@
               <FilePath>.\Startup.s</FilePath>
             </File>
             <File>
-              <FileName>serialreceive.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\serialreceive.c</FilePath>
+              <FileName>SR.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\SR.cpp</FilePath>
             </File>
           </Files>
         </Group>

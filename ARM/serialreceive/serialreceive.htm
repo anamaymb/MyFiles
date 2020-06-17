@@ -3,17 +3,17 @@
 <title>Static Call Graph - [.\serialreceive.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\serialreceive.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue Jun 16 19:16:18 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Wed Jun 17 20:46:03 2020
 <BR><P>
-<H3>Maximum Stack Usage =         56 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =         64 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-main &rArr; serial::Read() &rArr; __aeabi_idivmod
+main &rArr; serial::Read() &rArr; serial::rev(int, int) &rArr; __aeabi_idivmod
 <P>
 <H3>
 Functions with no stack information
 </H3><UL>
  <LI><a href="#[3]">Reset_Handler</a>
- <LI><a href="#[22]">__user_initial_stackheap</a>
+ <LI><a href="#[21]">__user_initial_stackheap</a>
  <LI><a href="#[4]">Undef_Handler</a>
  <LI><a href="#[5]">SWI_Handler</a>
  <LI><a href="#[6]">PAbt_Handler</a>
@@ -163,7 +163,7 @@ Global Symbols
 
 <P><STRONG><a name="[45]"></a>__rt_entry_postli_1</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
 
-<P><STRONG><a name="[24]"></a>__rt_exit</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
+<P><STRONG><a name="[23]"></a>__rt_exit</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit (via Veneer)
 </UL>
 
@@ -177,18 +177,15 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit (via Veneer)
 </UL>
 
-<P><STRONG><a name="[22]"></a>__user_initial_stackheap</STRONG> (ARM, 0 bytes, Stack size unknown bytes, startup.o(.text))
+<P><STRONG><a name="[21]"></a>__user_initial_stackheap</STRONG> (ARM, 0 bytes, Stack size unknown bytes, startup.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
 <P><STRONG><a name="[1d]"></a>delay(int)</STRONG> (ARM, 64 bytes, Stack size 0 bytes, sr.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::println(int)
-<LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::Read()
+<BR><BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::Read()
 <LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serialbegin()
 </UL>
-
-<P><STRONG><a name="[47]"></a>delayus(int)</STRONG> (ARM, 56 bytes, Stack size 0 bytes, sr.o(.text), UNUSED)
 
 <P><STRONG><a name="[1b]"></a>send()</STRONG> (ARM, 72 bytes, Stack size 16 bytes, sr.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = send()
@@ -203,90 +200,94 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b]"></a>main</STRONG> (ARM, 100 bytes, Stack size 0 bytes, sr.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = main &rArr; serial::Read() &rArr; __aeabi_idivmod
+<P><STRONG><a name="[b]"></a>main</STRONG> (ARM, 216 bytes, Stack size 0 bytes, sr.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = main &rArr; serial::Read() &rArr; serial::rev(int, int) &rArr; __aeabi_idivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::println(int)
-<LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::flush()
+<BR>[Calls]<UL><LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::itoa(int)
 <LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::Read()
 <LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serialbegin()
 <LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay(int)
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
 </UL>
-<P><STRONG><a name="[48]"></a>__aeabi_idiv</STRONG> (ARM, 0 bytes, Stack size 8 bytes, aeabi_sdiv.o(.text), UNUSED)
+<P><STRONG><a name="[47]"></a>__aeabi_idiv</STRONG> (ARM, 0 bytes, Stack size 8 bytes, aeabi_sdiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[26]"></a>__aeabi_idivmod</STRONG> (ARM, 384 bytes, Stack size 8 bytes, aeabi_sdiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_idivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::println(int)
-<LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::Read()
+<BR>[Called By]<UL><LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::itoa(int)
+<LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::rev(int, int)
 </UL>
 
-<P><STRONG><a name="[49]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[48]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[4a]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[49]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[4b]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[4a]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
 <P><STRONG><a name="[12]"></a>__user_setup_stackheap</STRONG> (ARM, 96 bytes, Stack size 8 bytes, sys_stackheap_outer.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
 <LI>Call Chain = __user_setup_stackheap
 </UL>
-<BR>[Calls]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
-<LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_initial_stackheap
+<BR>[Calls]<UL><LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
+<LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_initial_stackheap
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_sh
 </UL>
 
 <P><STRONG><a name="[16]"></a>exit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, exit.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit (via Veneer)
-<LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_call_atexit_fns (Weak Reference)
+<BR><BR>[Calls]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit (via Veneer)
+<LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_call_atexit_fns (Weak Reference)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[4c]"></a>__user_libspace</STRONG> (ARM, 12 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[4b]"></a>__user_libspace</STRONG> (ARM, 12 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
-<P><STRONG><a name="[21]"></a>__user_perproc_libspace</STRONG> (ARM, 0 bytes, Stack size 0 bytes, libspace.o(.text))
+<P><STRONG><a name="[20]"></a>__user_perproc_libspace</STRONG> (ARM, 0 bytes, Stack size 0 bytes, libspace.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[4d]"></a>__user_perthread_libspace</STRONG> (ARM, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[4c]"></a>__user_perthread_libspace</STRONG> (ARM, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[1a]"></a>_sys_exit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit (via Veneer)
 </UL>
 
-<P><STRONG><a name="[4e]"></a>__I$use$semihosting</STRONG> (ARM, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[4d]"></a>__I$use$semihosting</STRONG> (ARM, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[4f]"></a>__use_no_semihosting_swi</STRONG> (ARM, 4 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[4e]"></a>__use_no_semihosting_swi</STRONG> (ARM, 4 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[25]"></a>serial::ten(int)</STRONG> (ARM, 40 bytes, Stack size 0 bytes, sr.o(i._ZN6serial3tenEi))
-<BR><BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::Read()
-</UL>
-
-<P><STRONG><a name="[50]"></a>__semihosting_library_function</STRONG> (ARM, 0 bytes, Stack size 0 bytes, indicate_semi.o(.text), UNUSED)
-
-<P><STRONG><a name="[1e]"></a>serial::Read()</STRONG> (ARM, 572 bytes, Stack size 48 bytes, sr.o(i._ZN6serial4ReadEv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = serial::Read() &rArr; __aeabi_idivmod
+<P><STRONG><a name="[24]"></a>serial::rev(int, int)</STRONG> (ARM, 100 bytes, Stack size 32 bytes, sr.o(i._ZN6serial3revEii))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = serial::rev(int, int) &rArr; __aeabi_idivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 <LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::ten(int)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::Read()
+</UL>
+
+<P><STRONG><a name="[4f]"></a>__semihosting_library_function</STRONG> (ARM, 0 bytes, Stack size 32 bytes, indicate_semi.o(.text), UNUSED)
+
+<P><STRONG><a name="[25]"></a>serial::ten(int)</STRONG> (ARM, 40 bytes, Stack size 0 bytes, sr.o(i._ZN6serial3tenEi))
+<BR><BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::Read()
+<LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::rev(int, int)
+</UL>
+
+<P><STRONG><a name="[1e]"></a>serial::Read()</STRONG> (ARM, 588 bytes, Stack size 24 bytes, sr.o(i._ZN6serial4ReadEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = serial::Read() &rArr; serial::rev(int, int) &rArr; __aeabi_idivmod
+</UL>
+<BR>[Calls]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::ten(int)
+<LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial::rev(int, int)
 <LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay(int)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[20]"></a>serial::flush()</STRONG> (ARM, 220 bytes, Stack size 0 bytes, sr.o(i._ZN6serial5flushEv))
-<BR><BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[1f]"></a>serial::println(int)</STRONG> (ARM, 196 bytes, Stack size 24 bytes, sr.o(i._ZN6serial7printlnEi))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = serial::println(int) &rArr; __aeabi_idivmod
+<P><STRONG><a name="[1f]"></a>serial::itoa(int)</STRONG> (ARM, 140 bytes, Stack size 16 bytes, sr.o(i._ZN6serial4itoaEi))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = serial::itoa(int) &rArr; __aeabi_idivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
-<LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay(int)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -339,7 +340,7 @@ Local Symbols
 <H3>
 Undefined Global Symbols
 </H3>
-<P><STRONG><a name="[23]"></a>_call_atexit_fns</STRONG> (ARM, 0 bytes, Stack size 0 bytes, UNDEFINED)
+<P><STRONG><a name="[22]"></a>_call_atexit_fns</STRONG> (ARM, 0 bytes, Stack size 0 bytes, UNDEFINED)
 <BR><BR>[Called By]<UL><LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 </UL>
 <HR></body></html>
