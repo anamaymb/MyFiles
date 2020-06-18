@@ -11,28 +11,16 @@ Build target 'Target 1'
 compiling SR.cpp...
 SR.cpp(294): warning:  #177-D: variable "k" was declared but never referenced
   char k;
-SR.cpp: 1 warning, 0 errors
+SR.cpp(297): warning:  #177-D: variable "m" was declared but never referenced
+        float m;
+SR.cpp: 2 warnings, 0 errors
 linking...
-Program Size: Code=3032 RO-data=16 RW-data=0 ZI-data=1408  
+Program Size: Code=5316 RO-data=32 RW-data=4 ZI-data=1404  
 FromELF: creating hex file...
-".\serialreceive.axf" - 0 Error(s), 1 Warning(s).
+".\serialreceive.axf" - 0 Error(s), 2 Warning(s).
 </pre>
 </body>
 </html>
-                delay(10);
-SR.cpp(294): warning:  #177-D: variable "k" was declared but never referenced
-  char k;
-SR.cpp: 2 warnings, 2 errors
-".\serialreceive.axf" - 2 Error(s), 2 Warning(s).
-Target not created
- identifier "delay" is undefined
-    delay(10);
-armserial.h(295): error:  #20: identifier "delay" is undefined
-        delay(100);
-SR.cpp(309): error:  #20: identifier "delay" is undefined
-                delay(78);
-SR.cpp(292): warning:  #177-D: variable "k" was declared but never referenced
-  char k;
-SR.cpp: 1 warning, 9 errors
-".\serialreceive.axf" - 9 Error(s), 1 Warning(s).
-Target not created
+ZI-data=1408  
+FromELF: creating hex file...
+".\serialreceive.axf" - 0 Error(s), 3 Warning(s).

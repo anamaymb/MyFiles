@@ -288,7 +288,8 @@ void print(float a)
 	ftoa(a);
 	U0THR = 0;
   delay(10);
-	
+	U0THR = 0;
+  delay(10);
 	for(int i=0;i<countf;i++)
 	{
 	if((bf[i]>=48 && bf[i]<=57) || bf[i]==46 || bf[i]==45){
@@ -304,7 +305,8 @@ void println(float a)
 	ftoa(a);
 	U0THR = 0;
   delay(10);
-	
+	U0THR = 0;
+  delay(10);
 	for(int i=0;i<countf;i++)
 	{
 	if((bf[i]>=48 && bf[i]<=57) || bf[i]==46 || bf[i]==45){
@@ -408,7 +410,7 @@ for(scara=0; scara<100000; scara++);
 
 char r='A';
 int y=-834075;
-float p=-692.0082;
+float p=-1292.3058;
 int pate=0;
 int main(void)
 {
@@ -416,7 +418,7 @@ serialbegin();
 	
   while(1)
   {
-		serial.println(p);
+		serial.println(y);
 		delay(5);
 //		pate++;
 //		if(pate==5)

@@ -4,7 +4,7 @@ class serial{
 	int count,countf,len;
 	int serialavailable;
 	char z[100];
-	int flag,scara;
+	int scara;
 
 	
 	public:
@@ -54,6 +54,15 @@ class serial{
 			u*=10;
 			return u;
 		}
+		
+		float point(float y)
+		{
+			float u=1.0;
+			for(int g=0;g<y;g++)
+			u/=10;
+			return u;
+		}
+		
 
 		int rev(int y,int e)												//reversing a number
 		{
@@ -66,20 +75,94 @@ class serial{
 			}
 			return d;
 		}
+		
+		int revf(float y,int e)												//reversing a number
+		{
+			float d=0.0;
+			int c=y;
+			for(int p=e-1;p>=0;p--)
+			{
+				d=d+ten(p)*(c%10);
+				c=c/10;
+			}
+			//print(d);
+			return d;
+		}
 
 		float Read()
 		{
-			int n=z[0],m=0,g=0,nice=0;
-			//while(serialavailable<=4);
+			int n=z[0],m=0,md=0,g=0,nice=0;
+			float mf=0;
+			//while(serialavailable<=10);
 			if(n=='\0')
 			{
-				flag=1;
-				delayms(35);
-				
-				
 				for(int o=0;o<serialavailable-1;o++)
 				z[o]=z[o+1];
 				serialavailable--;
+				
+						if(z[0]=='\0')
+						{
+							delayms(35);
+							
+						for(int o=0;o<serialavailable-1;o++)
+						z[o]=z[o+1];
+						serialavailable--;
+							
+						if(z[0]==45)
+						{
+						nice=1;
+						for(int o=0;o<serialavailable-1;o++)
+						z[o]=z[o+1];
+						serialavailable--;
+						}
+						
+						mf=mf+ten(g)*(z[0]-48);
+						g++;
+						
+						for(int o=0;o<serialavailable-1;o++)
+						z[o]=z[o+1];
+						serialavailable--;
+						
+						for(g=1;z[0]!='.';g++)
+						{
+						mf=mf+ten(g)*(z[0]-48);
+						for(int o=0;o<serialavailable-1;o++)
+						z[o]=z[o+1];
+						serialavailable--;					
+						}
+						//println(z[0]);
+						for(int o=0;o<serialavailable-1;o++)
+						z[o]=z[o+1];
+						serialavailable--;
+						
+//						mf=revf(mf,g);
+						md=mf;
+						mf=rev(md,g);
+						
+						for(int y=0;y<4;y++)
+						{
+						mf=mf+point(y+1)*(z[0]-48);
+						for(int o=0;o<serialavailable-1;o++)
+						z[o]=z[o+1];
+						serialavailable--;
+						}
+						
+						if(z[0]==13)
+						{
+							//print('j');
+							for(int o=0;o<serialavailable-1;o++)
+						z[o]=z[o+1];
+						serialavailable--;
+						}
+						
+						
+						return ((1 +  (-2)*nice)*mf);
+
+						}
+				else{
+				
+				delayms(35);
+				
 
 				if(z[0]==45)
 				{
@@ -118,7 +201,7 @@ class serial{
 				else
 				return rev(m,g);
 			}		
-			
+		}
 			else
 			{
 			for(int o=0;o<serialavailable-1;o++)
@@ -132,7 +215,7 @@ class serial{
 		int kitiaahe()
 		{
 			if(z[0]=='\0')
-			while(serialavailable<=7);
+			while(serialavailable<=10);
 			return serialavailable;
 		}
 
@@ -244,7 +327,7 @@ class serial{
 			
 			for (int i=0;i<4;i++)
 			{
-				bf[countf+3-i]=floatemp%10 + 48;
+				bf[countf+3-i]=floatemp%10 + 48 /*+ (i==0)*/;
 				floatemp/=10;
 			}
 			countf+=4;
@@ -371,7 +454,7 @@ void serialbegin()
 	VICVectCntl4 |= 6;												//Putting the interrupt number (for UART0 it is 6)
 
 	VICVectAddr4 = (unsigned int)send;					//Assigning the address of ISR to the register (for selected vectored interrupt)
-	//delay(100);
+	
 	for(scara=0; scara<100000; scara++);
 	
 }
