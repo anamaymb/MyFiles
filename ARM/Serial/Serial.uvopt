@@ -194,10 +194,10 @@
       <FileType>8</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>8</ColumnNumber>
+      <ColumnNumber>18</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>304</TopLine>
-      <CurrentLine>314</CurrentLine>
+      <TopLine>357</TopLine>
+      <CurrentLine>361</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\seriallibrary.cpp</PathWithFileName>
       <FilenameWithoutPath>seriallibrary.cpp</FilenameWithoutPath>

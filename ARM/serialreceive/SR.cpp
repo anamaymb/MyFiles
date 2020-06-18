@@ -1,16 +1,14 @@
 #include <lpc214x.h>
-unsigned int i;
-void delay(int n)
-{
-	n*=1000;
-	for(/*unsigned int*/ i=0; i<n; i++);
-}
+
 #include "armserial.h"
 
 
-
-
-
+//unsigned int i;
+//void delay(int n)
+//{
+//	n*=1000;
+//	for(/*unsigned int*/ i=0; i<n; i++);
+//}
 //void delayus(int n)
 //{
 //	for(i=0; i<n; i++);
@@ -305,21 +303,16 @@ int l,dum=0;
 		
 			l=serial.Read();
 
-			serial.print(l);
-//			serial.flush();
-
+			serial.println(l);
 			dum++;
 		}
-//		delay(78);
+		//delay(78);
 		
 //		if(dum==3){
-//			serial.flush();
+			//serial.flush();
 //			dum=0;}
   }
 }
-
-
-
 
 
 

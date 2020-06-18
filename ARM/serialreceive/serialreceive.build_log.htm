@@ -4,36 +4,35 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 D:\MyFiles-master\ARM\serialreceive\serialreceive.uvproj
-Project File Date:  06/14/2020
+Project File Date:  06/17/2020
 
 <h2>Output:</h2>
 Build target 'Target 1'
 compiling SR.cpp...
-SR.cpp(296): warning:  #177-D: variable "k" was declared but never referenced
+SR.cpp(294): warning:  #177-D: variable "k" was declared but never referenced
   char k;
 SR.cpp: 1 warning, 0 errors
 linking...
-Program Size: Code=2660 RO-data=32 RW-data=4 ZI-data=1388  
+Program Size: Code=3032 RO-data=16 RW-data=0 ZI-data=1408  
 FromELF: creating hex file...
 ".\serialreceive.axf" - 0 Error(s), 1 Warning(s).
 </pre>
 </body>
 </html>
-  #177-D: variable "l" was declared but never referenced
-  int l,dum=0;
-SR.cpp: 1 warning, 3 errors
-".\serialreceive.axf" - 3 Error(s), 1 Warning(s).
+                delay(10);
+SR.cpp(294): warning:  #177-D: variable "k" was declared but never referenced
+  char k;
+SR.cpp: 2 warnings, 2 errors
+".\serialreceive.axf" - 2 Error(s), 2 Warning(s).
 Target not created
-ning, 4 errors
-".\serialreceive.axf" - 4 Error(s), 1 Warning(s).
-Target not created
-elay(10);
-armserial.h(208): error:  #20: identifier "delay" is undefined
+ identifier "delay" is undefined
     delay(10);
-armserial.h(267): error:  #20: identifier "delay" is undefined
+armserial.h(295): error:  #20: identifier "delay" is undefined
         delay(100);
-SR.cpp(296): warning:  #177-D: variable "l" was declared but never referenced
-  int l,dum=0;
+SR.cpp(309): error:  #20: identifier "delay" is undefined
+                delay(78);
+SR.cpp(292): warning:  #177-D: variable "k" was declared but never referenced
+  char k;
 SR.cpp: 1 warning, 9 errors
 ".\serialreceive.axf" - 9 Error(s), 1 Warning(s).
 Target not created

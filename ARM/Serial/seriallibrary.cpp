@@ -18,15 +18,19 @@ void delayus(int n)
 
 class serial{
 
-char b[10];
-	int count,len;
+char b[10],bf[15];
+	int count,countf,len;
 	int serialavailable;
 	char z[100];
-
+	int flag,scara;
 	
 	public:
 		
-
+void delayms(int n)
+		{
+			n*=1000;
+			for(scara=0; scara<n; scara++);
+		}
 
 void y()
 {
@@ -94,16 +98,27 @@ int rev(int y,int e)												//reversing a number
 
 int Read()
 {
-	delay(30);
-	int n=z[0],m=0,g=0;
-	while(serialavailable<=4);
+	
+	int n=z[0],m=0,g=0,nice=0;
+//	while(serialavailable<=4);
 	if(n=='\0')
 	{
+		flag=1;
+		delay(35);
 		
 		for(int o=0;o<serialavailable-1;o++)
 		z[o]=z[o+1];
 		serialavailable--;
 
+		
+		if(z[0]==45)
+		{
+		nice=1;
+		for(int o=0;o<serialavailable-1;o++)
+		z[o]=z[o+1];
+		serialavailable--;
+		}
+		
 		m=m+ten(g)*(z[0]-48);
 		g++;
 		
@@ -128,17 +143,14 @@ int Read()
 		serialavailable--;
 		}			
 
+		if (nice)
+		return (-1*rev(m,g));
+		else
 		return rev(m,g);
 	}		
 	
 	else
 	{
-//		while(z[0]<=57 && z[0]>=48)
-//		{
-//			for(int o=0;o<serialavailable-1;o++)
-//		z[o]=z[o+1];
-//		serialavailable--;
-//		}
 
 	for(int o=0;o<serialavailable-1;o++)
 	z[o]=z[o+1];
@@ -149,21 +161,23 @@ int Read()
 
 int kitiaahe()
 {
+	if(z[0]=='\0')
+	while(serialavailable<=7);
 	return serialavailable;
 }
 
 void print(char t)
 {
 	U0THR= t;
-	delay(3);
+	delayms(3);
 }
 
 void println(char t)
 {
 	U0THR= t;
-	delay(3);
+	delayms(3);
 	U0THR= 13;
-	delay(3);
+	delayms(3);
 }
 
 int strlen(char a[])
@@ -181,7 +195,7 @@ void print(char a[])
 	for(int i=0;i<strlen(a);i++)
 	{		
   U0THR = a[i];
-  delay(10);
+  delayms(10);
 	}
 	
 }
@@ -191,17 +205,17 @@ void println(char a[])
 	for(int i=0;i<strlen(a);i++)
 	{		
   U0THR = a[i];
-  delay(10);
+  delayms(10);
 	}
 	U0THR= 13;
-	delay(3);
+	delayms(3);
 }
 
 
 void itoa(int a)
 {
-	int r=a;
 	count=0;
+	int r=a;
 	if(r<0)
 	a=-a;
 	do
@@ -216,43 +230,124 @@ void itoa(int a)
 		b[count]=45;
 		count++;
 	}
-	//print(b);
 }
 
 
+
+void ftoa(float a)
+{
+	int r=a;
+	if(r<0)
+	a=-a;
+	
+	int tem,zero=0;
+	tem=a;
+	
+	char bt[10];
+	countf=0;
+	int floatemp=0;
+	float temf=a-tem;
+	
+	do
+	{
+		bt[countf]=(tem%10)+48;
+		countf++;tem/=10;
+	}
+	while(tem!=0);
+	
+	if(r<0)
+	{
+		bt[countf]=45;
+		countf++;
+	}
+	
+	for(int i=0;i<countf;i++)
+	bf[countf-i-1]=bt[i];
+	
+	
+	bf[countf]=46;
+	countf++;
+	
+	
+	temf=temf*10000;
+
+	floatemp=temf;
+
+	
+	for (int i=0;i<4;i++)
+	{
+		bf[countf+3-i]=floatemp%10 + 48;
+		floatemp/=10;
+	}
+	countf+=4;
+	
+}
+
+void print(float a)
+{
+	ftoa(a);
+	U0THR = 0;
+  delay(10);
+	
+	for(int i=0;i<countf;i++)
+	{
+	if((bf[i]>=48 && bf[i]<=57) || bf[i]==46 || bf[i]==45){
+  U0THR = bf[i];
+  delay(10);}
+	}
+	
+
+}
+
+void println(float a)
+{
+	ftoa(a);
+	U0THR = 0;
+  delay(10);
+	
+	for(int i=0;i<countf;i++)
+	{
+	if((bf[i]>=48 && bf[i]<=57) || bf[i]==46 || bf[i]==45){
+  U0THR = bf[i];
+  delay(10);}
+	}
+	
+	U0THR= 13;
+	delay(3);
+
+}
 
 
 void print(int a)
 {
 	itoa(a);
-U0THR = 0;
-  delay(10);
+	U0THR = 0;
+  delayms(10);
 	
 	for(int i=(count-1);i>=0;i--){
-		if(b[i]>=48 && b[i]<=57){
+		if((b[i]>=48 && b[i]<=57) || b[i]==45){
   U0THR = b[i];
-  delay(10);}
+  delayms(10);}
 }
-//	U0THR = 13;
-//  delay(10);
+
 }
 
 
 
 void println(int a)
 {
-		itoa(a);
+	itoa(a);
 
 	U0THR = 0;
-  delay(10);
+  delayms(10);
 	
 	for(int i=(count-1);i>=0;i--){
 		if((b[i]>=48 && b[i]<=57) || b[i]==45){
   U0THR = b[i];
-  delay(10);}
+  delayms(10);}
 }
 	U0THR= 13;
-	delay(3);
+	delayms(3);
 }
 
 }serial;
@@ -265,6 +360,7 @@ __irq void send(void)							//UART0 RX interrupt
 
 void serialbegin()
 {
+	int scara=0;
 		//If simulating on proteus, Adjust clock frequency of the lpc module to 20MHz
 	
 	PINSEL0 |= (1<<0);						//Setting the pin as Tx
@@ -303,7 +399,7 @@ void serialbegin()
 	VICVectCntl4 |= 6;												//Putting the interrupt number (for UART0 it is 6)
 
 	VICVectAddr4 = (unsigned int)send;					//Assigning the address of ISR to the register (for selected vectored interrupt)
-delay(100);
+for(scara=0; scara<100000; scara++);
 }
 
 
@@ -311,7 +407,8 @@ delay(100);
 
 
 char r='A';
-int y=12;
+int y=-834075;
+float p=-692.0082;
 int pate=0;
 int main(void)
 {
@@ -319,11 +416,11 @@ serialbegin();
 	
   while(1)
   {
-		serial.println(y);
+		serial.println(p);
 		delay(5);
-		pate++;
-		if(pate==5)
-	{y-=4;pate=0;}
+//		pate++;
+//		if(pate==5)
+//	{y-=4;pate=0;}
 	
   }
 	
