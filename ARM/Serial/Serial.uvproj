@@ -415,6 +415,11 @@
               <FileType>8</FileType>
               <FilePath>.\seriallibrary.cpp</FilePath>
             </File>
+            <File>
+              <FileName>armserial.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\armserial.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

@@ -9,13 +9,18 @@ Project File Date:  06/14/2020
 <h2>Output:</h2>
 Build target 'Target 1'
 compiling seriallibrary.cpp...
-seriallibrary.cpp(243): warning:  #177-D: variable "zero" was declared but never referenced
-        int tem,zero=0;
-seriallibrary.cpp: 1 warning, 0 errors
 linking...
-Program Size: Code=2044 RO-data=32 RW-data=20 ZI-data=1412  
+Program Size: Code=2060 RO-data=32 RW-data=20 ZI-data=1404  
 FromELF: creating hex file...
-".\Serial.axf" - 0 Error(s), 1 Warning(s).
+".\Serial.axf" - 0 Error(s), 0 Warning(s).
 </pre>
 </body>
 </html>
+erenced
+        int r=a;
+seriallibrary.cpp: 1 warning, 1 error
+".\Serial.axf" - 1 Error(s), 1 Warning(s).
+Target not created
+-data=32 RW-data=20 ZI-data=1412  
+FromELF: creating hex file...
+".\Serial.axf" - 0 Error(s), 2 Warning(s).

@@ -1,15 +1,13 @@
 #include <lpc214x.h>
-
+#include "armserial.h"
 
 unsigned int i;
-
 void delay(int n)
 {
 	n*=1000;
 	for(i=0; i<n; i++);
 }
-
-
+/*
 void delayus(int n)
 {
 	for(i=0; i<n; i++);
@@ -22,15 +20,54 @@ char b[10],bf[15];
 	int count,countf,len;
 	int serialavailable;
 	char z[100];
-	int flag,scara;
+	int scara;
 	
-	public:
+	
+		private:
+	
+		void rotate()
+		{
+			for(int o=0;o<serialavailable-1;o++)
+			z[o]=z[o+1];
+			serialavailable--;
+		}
+		int rev(int y,int e)												//reversing a number
+		{
+			int d=0;
+
+			for(int p=e-1;p>=0;p--)
+			{
+				d=d+ten(p)*(y%10);
+				y=y/10;
+			}
+			return d;
+		}
 		
-void delayms(int n)
+		
+		void delayms(int n)
 		{
 			n*=1000;
 			for(scara=0; scara<n; scara++);
 		}
+		int revf(float y,int e)												//reversing a number
+		{
+			float d=0.0;
+			int c=y;
+			for(int p=e-1;p>=0;p--)
+			{
+				d=d+ten(p)*(c%10);
+				c=c/10;
+			}
+			//print(d);
+			return d;
+		}	
+	
+	
+	
+	
+	
+		public:
+		
 
 void y()
 {
@@ -73,96 +110,115 @@ int ten(int y)															//to obtain any power of 10
 	return u;
 }
 
-int rev(int y,int e)												//reversing a number
-{
-	int d=0;
-
-	for(int p=e-1;p>=0;p--)
-	{
-		d=d+ten(p)*(y%10);
-		y=y/10;
-	}
-	return d;
-}
-
-//char Read()
-//{
-//	int n=z[0];
-//	
-//	for(int o=0;o<serialavailable-1;o++)
-//	z[o]=z[o+1];
-//	serialavailable--;
-//	return n;
-//}
-
-
-int Read()
-{
-	
-	int n=z[0],m=0,g=0,nice=0;
-//	while(serialavailable<=4);
-	if(n=='\0')
-	{
-		flag=1;
-		delay(35);
-		
-		for(int o=0;o<serialavailable-1;o++)
-		z[o]=z[o+1];
-		serialavailable--;
-
-		
-		if(z[0]==45)
+float point(float y)
 		{
-		nice=1;
-		for(int o=0;o<serialavailable-1;o++)
-		z[o]=z[o+1];
-		serialavailable--;
+			float u=1.0;
+			for(int g=0;g<y;g++)
+			u/=10;
+			return u;
 		}
-		
-		m=m+ten(g)*(z[0]-48);
-		g++;
-		
-		for(int o=0;o<serialavailable-1;o++)
-		z[o]=z[o+1];
-		serialavailable--;
-		
-		for(g=1;(z[0]!='\0' && z[0]!=13);g++)
+
+
+
+float Read()
 		{
+			int n=z[0],m=0,md=0,g=0,nice=0;
+			float mf=0;
+			if(n=='\0')
+			{
 
-		m=m+ten(g)*(z[0]-48);
-		for(int o=0;o<serialavailable-1;o++)
-		z[o]=z[o+1];
-		serialavailable--;
+				rotate();
+				
+						if(z[0]=='\0')
+						{
+							//print('d');
+						delayms(35);
+							
+						rotate();
+							
+						if(z[0]==45)
+						{
+						nice=1;
+						rotate();
+						}
+						
+						mf=mf+ten(g)*(z[0]-48);
+						g++;
+						
+						rotate();
+						
+						for(g=1;z[0]!='.';g++)
+						{
+						mf=mf+ten(g)*(z[0]-48);
+						rotate();
+						}
+						
+						rotate();
 
+						md=mf;
+						mf=rev(md,g);
+						
+						for(int y=0;y<4;y++)
+						{
+						mf=mf+point(y+1)*(z[0]-48);
+						rotate();
+						}
+						
+						if(z[0]==13)
+						{
+						rotate();
+						}
+						
+						
+						return ((1 +  (-2)*nice)*mf);
+
+						}
+				else{
+				
+				delayms(15);
+				
+
+				if(z[0]==45)
+				{
+				nice=1;
+				rotate();
+				}
+				
+				m=m+ten(g)*(z[0]-48);
+				g++;
+				
+				rotate();
+				
+				for(g=1;(z[0]!='\0' && z[0]!=13);g++)
+				{
+
+				m=m+ten(g)*(z[0]-48);
+
+				rotate();
+				}
+				
+				if(z[0]==13)
+				{
+					rotate();
+				}
+				
+				if (nice)
+				return (-1*rev(m,g));
+				else
+				return rev(m,g);
+			}		
 		}
-		
-		if(z[0]==13)
-		{
-			for(int o=0;o<serialavailable-1;o++)
-		z[o]=z[o+1];
-		serialavailable--;
-		}			
-
-		if (nice)
-		return (-1*rev(m,g));
-		else
-		return rev(m,g);
-	}		
-	
-	else
-	{
-
-	for(int o=0;o<serialavailable-1;o++)
-	z[o]=z[o+1];
-	serialavailable--;
-	return n;
-	}
-}
+			else
+			{
+			rotate();
+			return n;
+			}
+		}
 
 int kitiaahe()
 {
 	if(z[0]=='\0')
-	while(serialavailable<=7);
+	while(serialavailable<=15);
 	return serialavailable;
 }
 
@@ -236,11 +292,12 @@ void itoa(int a)
 
 void ftoa(float a)
 {
-	int r=a;
-	if(r<0)
-	a=-a;
 	
-	int tem,zero=0;
+	float q=0.0;
+	if(a<0){
+	a=-a;q=1.0;}
+	
+	int tem;
 	tem=a;
 	
 	char bt[10];
@@ -248,6 +305,8 @@ void ftoa(float a)
 	int floatemp=0;
 	float temf=a-tem;
 	
+//	print('h');
+//	println(tem);
 	do
 	{
 		bt[countf]=(tem%10)+48;
@@ -255,7 +314,7 @@ void ftoa(float a)
 	}
 	while(tem!=0);
 	
-	if(r<0)
+	if(q==1.0)
 	{
 		bt[countf]=45;
 		countf++;
@@ -323,6 +382,7 @@ void println(float a)
 void print(int a)
 {
 	itoa(a);
+	
 	U0THR = 0;
   delayms(10);
 	
@@ -404,28 +464,25 @@ void serialbegin()
 for(scara=0; scara<100000; scara++);
 }
 
+*/
 
 
 
 
 char r='A';
-int y=-834075;
-float p=-1292.3058;
+int y=0;
+float p=-398520.38;
 int pate=0;
 int main(void)
 {
 serialbegin();
-	
   while(1)
   {
 		serial.println(y);
 		delay(5);
-//		pate++;
-//		if(pate==5)
-//	{y-=4;pate=0;}
-	
+		pate++;
+		if(pate==3)
+	{y-=4;pate=0;}
   }
-	
 }
-
 

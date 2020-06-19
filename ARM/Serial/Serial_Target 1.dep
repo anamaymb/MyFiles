@@ -1,4 +1,6 @@
 Dependencies for Project 'Serial', Target 'Target 1': (DO NOT MODIFY !)
 F (.\Startup.s)(0x532C14EA)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
-F (.\seriallibrary.cpp)(0x5EEB80F4)(--cpp -c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\seriallibrary.o --omf_browse .\seriallibrary.crf --depend .\seriallibrary.d)
+F (.\seriallibrary.cpp)(0x5EECB7C9)(--cpp -c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Philips-o .\seriallibrary.o --omf_browse .\seriallibrary.crf --depend .\seriallibrary.d)
 I (C:\Keil\ARM\Inc\Philips\lpc214x.h)(0x532C1500)
+I (armserial.h)(0x5EECB74C)
+F (.\armserial.h)(0x5EECB74C)()

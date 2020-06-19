@@ -42,9 +42,10 @@ class serial{
 				d=d+ten(p)*(c%10);
 				c=c/10;
 			}
-			//print(d);
+			
 			return d;
 		}	
+	
 	
 	
 	public:
@@ -105,7 +106,7 @@ class serial{
 				
 						if(z[0]=='\0')
 						{
-							//print('d');
+						
 						delayms(35);
 							
 						rotate();
@@ -316,7 +317,6 @@ class serial{
 		void print(float a)
 		{
 			ftoa(a);
-			
 			U0THR = 0;
 			delayms(10);
 			U0THR = 0;
@@ -336,7 +336,6 @@ class serial{
 		void println(float a)
 		{
 			ftoa(a);
-			
 			U0THR = 0;
 			delayms(10);
 			U0THR = 0;
@@ -372,7 +371,7 @@ class serial{
 
 		void println(int a)
 		{
-			itoa(a);
+				itoa(a);
 
 			U0THR = 0;
 			delayms(10);
