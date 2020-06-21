@@ -4,9 +4,8 @@
 struct Node { 
     int data; 
     struct Node* next; 
-}/*t,r,f*/; 
+}; 
   
-
 void printList(struct Node* n) 
 { 
     while (n != NULL) { 
@@ -75,22 +74,9 @@ int getfromend(struct Node* n, int m)
 }
 
 
-
 int main() 
 { 
-    // struct Node* head = &t; 
-    // struct Node* second = &r; 
-    // struct Node* third = &f;
-
-    // struct Node* second =(struct Node*)malloc(sizeof(struct Node)); 
-    // struct Node* third = (struct Node*)malloc(sizeof(struct Node)); 
-   
-    // head = (struct Node*)malloc(sizeof(struct Node)); 
-    // second = (struct Node*)malloc(sizeof(struct Node)); 
-    // third = (struct Node*)malloc(sizeof(struct Node)); 
-
-
-
+    
     int a[5]={11,23,75,99,23};
 
     struct Node* head = (struct Node*)malloc(sizeof(struct Node)); 
@@ -109,14 +95,16 @@ int main()
         head->next=NULL;
     }
 
-    // delnode(dokya,2);
+    delnode(dokya,2);
+
     insert(dokya,4,100);
 
     printList(dokya); 
   
     printf("\n The %dth element is %d. \n ",3,get(dokya,3));
 
-    printf("\n The %dth element from end is %d. \n ",3,getfromend(dokya,3));
+    printf("The %dth element from end is %d. \n ",3,getfromend(dokya,3));
+    
     printf("The length of the list is %d",length(dokya));
     return 0; 
 }
