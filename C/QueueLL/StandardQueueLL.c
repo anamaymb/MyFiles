@@ -43,38 +43,50 @@ void preappend(int a)
 
 int pop()
 {
-    if(!available)
+    if(available==0)
     {
-        printf("The Stack is empty..!!");return 0;
+        printf("Nothing left in the stack");return 0; 
     }
-    int m=1,n;
-    struct Node* s=head;
-    struct Node* t=head;
-
-        while(m!=length(s))
-        {
-            head=head->next;
-            m++;
-        }
-        m=1;
-        n=head->data;
-        head=t;
-
-    if(head->next!=NULL)
-    {
-
-        while(m!=length(s)-1)
-        {
-            head=head->next;
-            m++;
-        }
-        head->next=NULL;
-        head=t;
-    }
-
+    int a=head->data;
+    head=head->next;
     available--;
-    return n;
+    return a;
 }
+
+// int pop()
+// {
+//     if(!available)
+//     {
+//         printf("The Stack is empty..!!");return 0;
+//     }
+//     int m=1,n;
+//     struct Node* s=head;
+//     struct Node* t=head;
+
+//         while(m!=length(s))
+//         {
+//             head=head->next;
+//             m++;
+//         }
+//         m=1;
+//         n=head->data;
+//         head=t;
+
+//     if(head->next!=NULL)
+//     {
+
+//         while(m!=length(s)-1)
+//         {
+//             head=head->next;
+//             m++;
+//         }
+//         head->next=NULL;
+//         head=t;
+//     }
+
+//     available--;
+//     return n;
+// }
 
 
 

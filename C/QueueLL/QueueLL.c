@@ -7,8 +7,9 @@ struct Node
     struct Node* next;
 };
 
-struct Node* head = NULL;
+struct Node* head=NULL;
 int available=0;
+
 
 int length(struct Node* n)
 {
@@ -40,6 +41,21 @@ void preappend(int a)
     head=s;
 }
 
+void push(int a)
+{
+    available++;
+    struct Node* s=head;
+    if(head==NULL)
+    {
+        head = (struct Node*)malloc(sizeof(struct Node*));
+        head->data=a;
+        head->next=NULL;
+    }
+    else
+    {
+        preappend(a);
+    }
+}
 
 int pop()
 {
@@ -77,75 +93,27 @@ int pop()
 }
 
 
+// int pop()
+// {
+//     int a=head->data;
+//     head=head->next;
+//     return a;
+// }
 
-void brek()
-{
-    int m=1,n;
-    struct Node* s=head;
-    struct Node* t=head;
-
-    printf(" %d ",length(head));
-    
-    head=head->next;
-    printf(" %d ",length(head));
-                
-    head->next=NULL;
-    head=t;
-    printf(" %d ",length(head));  
-              
-}
-
-void push (int p)
-{
-    available++;
-    int m=1;
-    struct Node* s=head;
-    struct Node* t=head;
-    
-
-    if(head!=NULL)
-    {
-        t=head;
-    while(m!=length(s))
-    {
-        head=head->next;m++;
-    }
-
-    head->next= (struct Node*)malloc(sizeof(struct Node*));
-    head=head->next;
-    head->data=p;
-    head->next=NULL;
-    head=t;
-
-
-    }
-    else
-    {
-        head= (struct Node*)malloc(sizeof(struct Node*));
-        head->data=p;
-        head->next=NULL;
-    }
-    
-
-}
-char c;
 int main()
 {
-
-int q=0,f;
-
-
+char c;
+int f;
 while(1)
 {
     
     printf("\nPush ka Pop?? ");
     scanf("\n%c",&c);
-    printf("You Entered %c \n",c);
+    
     if(c=='u')
     {
         printf("kay push karu? ");
         scanf("%d",&f);
-        
         push(f);
         printlist(head);
         c='u';
