@@ -7,7 +7,7 @@ struct Node
     struct Node* next;
 };
 
-struct Node* head=(struct Node*)malloc(sizeof(struct Node*));
+struct Node* head = (struct Node*)malloc(sizeof(struct Node*));
 struct Node* dokya=head;
 struct Node* temp=NULL;
 
