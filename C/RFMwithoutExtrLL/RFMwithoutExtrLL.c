@@ -85,7 +85,7 @@ int main()
 
     printf("\nOriginal                              : ");
     printlist(head);
-    reverseMid(head,1);
+    reverseMid(head,3);
     printf("\n");
     printf("Reversed from somewhere in the middle : ");
     printlist(head);
