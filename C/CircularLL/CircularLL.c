@@ -7,7 +7,7 @@ struct Node
     struct Node* next;
 };
 
-struct Node* head=(struct Node*)malloc(sizeof(struct Node*));
+struct Node* head=(struct Node*)malloc(sizeof(struct Node));
 struct Node* dokya=head;
 
 void printlist(struct Node* n)
@@ -34,7 +34,7 @@ void insert(struct Node* n,int m)
     {
     
     int f=n->data;
-    struct Node* s = (struct Node*)malloc(sizeof(struct Node*));
+    struct Node* s = (struct Node*)malloc(sizeof(struct Node));
     s->data=f;
     s->next = n->next;
     n->data=m;
@@ -49,14 +49,14 @@ void insert(struct Node* n,int m)
     }
     if(n->next==t)
     {
-    struct Node* s = (struct Node*)malloc(sizeof(struct Node*));
+    struct Node* s = (struct Node*)malloc(sizeof(struct Node));
     s->data=m;
     s->next=NULL;
     n->next=s;
     }
     else
     {
-    struct Node* s = (struct Node*)malloc(sizeof(struct Node*));
+    struct Node* s = (struct Node*)malloc(sizeof(struct Node));
     s->data=m;
     s->next=n->next;
     n->next=s;
@@ -74,7 +74,7 @@ int main()
 
         if(i!=5)
         {
-            head->next=(struct Node*)malloc(sizeof(struct Node*));
+            head->next=(struct Node*)malloc(sizeof(struct Node));
             head=head->next;
         }
         else

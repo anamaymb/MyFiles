@@ -7,7 +7,7 @@ struct Node
     struct Node* next;
 };
 
-struct Node* head = (struct Node*)malloc(sizeof(struct Node*));
+struct Node* head = (struct Node*)malloc(sizeof(struct Node));
 struct Node* dokya=head;
 struct Node* temp=NULL;
 
@@ -29,12 +29,12 @@ void reverse(struct Node* n)
     {
         if(temp==NULL)
         {
-            temp=(struct Node*)malloc(sizeof(struct Node*));
+            temp=(struct Node*)malloc(sizeof(struct Node));
             temp->next=NULL;
         }
         else
         {
-        struct Node* s=(struct Node*)malloc(sizeof(struct Node*));
+        struct Node* s=(struct Node*)malloc(sizeof(struct Node));
         s->next = temp;
         temp=s;
         }
@@ -56,7 +56,7 @@ int main()
 
         if(i!=5)
         {
-            head->next=(struct Node*)malloc(sizeof(struct Node*));
+            head->next=(struct Node*)malloc(sizeof(struct Node));
             head=head->next;
         }
         else

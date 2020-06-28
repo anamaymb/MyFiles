@@ -35,7 +35,7 @@ void printlist(struct Node* n)
 
 void preappend(int a)
 {
-    struct Node* s=(struct Node*)malloc(sizeof(struct Node*));
+    struct Node* s=(struct Node*)malloc(sizeof(struct Node));
     s->next=head;
     s->data=a;
     head=s;
@@ -47,7 +47,7 @@ void push(int a)
     struct Node* s=head;
     if(head==NULL)
     {
-        head = (struct Node*)malloc(sizeof(struct Node*));
+        head = (struct Node*)malloc(sizeof(struct Node));
         head->data=a;
         head->next=NULL;
     }

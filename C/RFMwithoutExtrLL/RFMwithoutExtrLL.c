@@ -7,7 +7,7 @@ struct Node
     struct Node* next;
 };
 
-struct Node* head=(struct Node*)malloc(sizeof(struct Node*));
+struct Node* head=(struct Node*)malloc(sizeof(struct Node));
 struct Node* dokya=head;
 
 void printlist(struct Node* n)
@@ -73,7 +73,7 @@ int main()
 
         if(i!=5)
         {
-            head->next=(struct Node*)malloc(sizeof(struct Node*));
+            head->next=(struct Node*)malloc(sizeof(struct Node));
             head=head->next;
         }
         else

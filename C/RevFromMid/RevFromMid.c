@@ -7,7 +7,7 @@ struct Node
     struct Node* next;
 };
 
-struct Node* head=(struct Node*)malloc(sizeof(struct Node*));
+struct Node* head=(struct Node*)malloc(sizeof(struct Node));
 struct Node* dokya=head;
 
 void printlist(struct Node* n)
@@ -22,7 +22,7 @@ void printlist(struct Node* n)
 void reverseMid(struct Node* n, int m)
 {
 
-    struct Node* temp1=(struct Node*)malloc(sizeof(struct Node*));
+    struct Node* temp1=(struct Node*)malloc(sizeof(struct Node));
     struct Node* w=temp1;
 
     int y=0;
@@ -38,7 +38,7 @@ void reverseMid(struct Node* n, int m)
         }
         else
         {
-            temp1->next=(struct Node*)malloc(sizeof(struct Node*));
+            temp1->next=(struct Node*)malloc(sizeof(struct Node));
             temp1=temp1->next;
             temp1->data=n->data;
             temp1->next=NULL;
@@ -48,7 +48,7 @@ void reverseMid(struct Node* n, int m)
     }
 
     int q=0;
-    struct Node* t=(struct Node*)malloc(sizeof(struct Node*));
+    struct Node* t=(struct Node*)malloc(sizeof(struct Node));
     while(n!=NULL)
     {
         
@@ -58,7 +58,7 @@ void reverseMid(struct Node* n, int m)
         }
         else
         {
-        struct Node* s = (struct Node*)malloc(sizeof(struct Node*));
+        struct Node* s = (struct Node*)malloc(sizeof(struct Node));
         s->next = t;
         t=s;
         }
@@ -84,7 +84,7 @@ int main()
 
         if(i!=5)
         {
-            head->next=(struct Node*)malloc(sizeof(struct Node*));
+            head->next=(struct Node*)malloc(sizeof(struct Node));
             head=head->next;
         }
         else
