@@ -4,7 +4,7 @@ import numpy as np
 def nothing(x):
 	pass
 
-shorten=0.1	
+shorten=0.2
 	
 cv2.namedWindow("Trackbars")
 cv2.createTrackbar("X","Trackbars",0,255,nothing)
