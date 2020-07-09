@@ -2,16 +2,35 @@ import cv2
 import numpy as np
 
 
-shorten=0.3	
+shorten=0.5	
 
 cap = cv2.VideoCapture(0)
 	
 
 
-ret, a = cap.read()
 
+ret, a = cap.read()
+# a = cv2.imread("rgb.jpg",-1)
 
 a=cv2.resize(a,(int(a.shape[1]*shorten),int(a.shape[0]*shorten)))
+
+# scale1=0.7
+# scale2=0.5
+
+# x=int(scale1*a.shape[1])
+# y=int(scale2*a.shape[0])
+
+# print(a.shape[0],a.shape[1])
+# print(x,y)
+
+# print(a[y,x,0],a[y,x,1],a[y,x,2])
+
+# a = cv2.circle(a,(x,y), 1, (0,0,255), -1)
+
+
+
+
+# a = cv2.line(a,(x,y),(x,y),(255,0,0),5)
 cv2.imshow('A',a)
 d=np.zeros((a.shape[0],a.shape[1],1),dtype=np.uint8)
 blue=np.zeros((a.shape[0],a.shape[1],1),dtype=np.uint8)
@@ -37,7 +56,7 @@ for i in range (0,a.shape[0]):
 
 
 
-        if f[i,j]>174:
+        if f[i,j]>167:#and f[i,j]<204:
             f[i,j]=255
             sample[i,j]=a[i,j]
         else:
