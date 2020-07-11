@@ -5,7 +5,7 @@ def nothing(x):
 	pass
 
 shorten=0.4	
-
+sen=0.2
 cap = cv2.VideoCapture(0)
 
 cv2.namedWindow("Trackbars")
@@ -14,11 +14,17 @@ cv2.createTrackbar("Y","Trackbars",0,255,nothing)
 
 a = cv2.imread("grn.jpg",-1)
 z = cv2.imread("grn.jpg",-1)
+y = cv2.imread("solar.jpg",-1)
 # ret, a = cap.read()
 # z=a
 
+
+
 a=cv2.resize(a,(int(a.shape[1]*shorten),int(a.shape[0]*shorten)))
 z=cv2.resize(z,(int(z.shape[1]*shorten),int(z.shape[0]*shorten)))
+y=cv2.resize(y,(int(y.shape[1]*sen),int(y.shape[0]*sen)))
+
+cv2.imshow('y',y)
 
 temp0=0
 temp2=0
@@ -51,7 +57,7 @@ for i in range (0,a.shape[0]):
 
         if (d[i,j]>=0 and d[i,j]<=80) and (f[i,j]>126 and f[i,j]<=246) and (e[i,j]>=1 and e[i,j]<=90):
             d[i,j]=255
-            green[i,j]=a[i,j]
+            green[i,j]=y[i+50,j+50]
             if countx==0:
                 ix=i
                 jy=j
@@ -64,14 +70,15 @@ for i in range (0,a.shape[0]):
 
         else:
             d[i,j]=0
-            green[i,j,0]=sm[i,j]
-            green[i,j,1]=sm[i,j]
-            green[i,j,2]=sm[i,j]
+            green[i,j]=a[i,j]
+            # green[i,j,0]=sm[i,j]
+            # green[i,j,1]=sm[i,j]
+            # green[i,j,2]=sm[i,j]
 
 print(arrx/countx,arry/county)
 
-green = cv2.circle(green,(int(arry/county),int(arrx/countx)), 10, (0,0,255), 3)
-green = cv2.rectangle(green, (jy,ix), (fy,fx), (255,0,0), 3) 
+# green = cv2.circle(green,(int(arry/county),int(arrx/countx)), 10, (0,0,255), 3)
+# green = cv2.rectangle(green, (jy,ix), (fy,fx), (255,0,0), 3) 
 
 cv2.imshow('d',d)
 cv2.imshow('Green',green)
