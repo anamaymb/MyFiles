@@ -22,7 +22,7 @@ cv2.imshow('A',a)
 
 green=np.zeros((a.shape[0],a.shape[1],3),dtype=np.uint16)
 ana=np.zeros((a.shape[0],a.shape[1],3),dtype=np.uint16)
-
+may=np.zeros((a.shape[0],a.shape[1],3),dtype=np.uint16)
 
 sm=np.zeros((a.shape[0],a.shape[1],3),dtype=np.uint16)
 
@@ -106,19 +106,21 @@ for i in range (n,a.shape[0]-n):
             if n!=0:
                 green[i,j]=green[i,j]+a[i,j+k]
                 ana[i,j]=ana[i,j]+a[i+k,j]
+                may[i,j]=may[i,j]+a[i+k,j+k]
  
         green[i,j]=green[i,j]/(2*n)
         ana[i,j]=ana[i,j]/(2*n)
-            
+        may[i,j]=may[i,j]/(2*n)            
 
 for j in range (0,a.shape[1]):
     for i in range (0,a.shape[0]):
         green[i,j]=green[i,j]*2**8
         ana[i,j]=ana[i,j]*2**8
-        sm[i,j]=sm[i,j]*2**8
+        may[i,j]=may[i,j]*2**8
 
 
 cv2.imshow('Ana',ana)
+cv2.imshow('May',may)
 cv2.imshow('greenUpdated',green)
 
 cv2.waitKey(0)
