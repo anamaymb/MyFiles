@@ -26,28 +26,38 @@ z=cv2.resize(z,(int(z.shape[1]*shorten),int(z.shape[0]*shorten)))
 w=cv2.resize(w,(int(w.shape[1]*shorten),int(w.shape[0]*shorten)))
 
 
-sm=np.zeros((a.shape[0],a.shape[1],3),dtype=np.uint8)
+# sm=np.zeros((a.shape[0],a.shape[1],3),dtype=np.uint8)
 
-for i in range (1,a.shape[0]-1):
-    for j in range (1,a.shape[1]-1):
-        sm[i,j]=a[i,j]
+# for i in range (1,a.shape[0]-1):
+#     for j in range (1,a.shape[1]-1):
+#         sm[i,j]=a[i,j]
 
 temp0=0
 temp2=0
 temp1=0
 mult1=110
 mult2=110
-an=-1
+an=1
 flag=0
 flag1=0
 flag2=0
 flag3=0
-speed=4.5
-brk=0.05
-
+speed=5.5
+brk=0.02
+i=0
 tog=speed
-h=0
-cv2.imshow('sm',sm)
+# h=0
+m=0.6
+h=(mult2/255)-m*(mult1/255)
+print('h at start',h)
+# cv2.imshow('sm',sm)
+
+
+
+
+
+
+
 while True:
     if speed>0 :
         if tog>0:
@@ -67,7 +77,6 @@ while True:
     # mult1=mult1+a.shape[0]/2
     if mult1>=255:
         tog=-speed
-        # an=1
     elif mult1<=0:
         tog=speed
         if an==1:
@@ -76,16 +85,14 @@ while True:
             an=1
     mult1=mult1+tog
     scale1=mult1/255
-    m=1.5
+    # m=1
 
     if mult2>5:
         flag=0
     if mult1<250:
         flag3=0
 
-
     if mult2>=255 and an==1 and tog>0:
-        # h=2*scale2
         h=scale1*m+1
         print('scale2')
         an=-1
@@ -93,7 +100,6 @@ while True:
     elif mult2>=255 and an==-1 and tog<0:
         print('k')
         flag=0
-        # h=m*scale1
         h=1-m*scale1
         print(scale2)
         an=1
@@ -108,16 +114,11 @@ while True:
             print('anaamay')
             an=-1
             h=scale2+m
-        
         flag3=1
-        # an=1
 
-        # flag=1
-        # h=-m*scale2
-        # h=scale2-m
-
-    if mult2<=0 and flag==0:
-        print('b')
+    if mult2<0 and flag==0:
+        print('b',i)
+        print('mult22222',mult2)
         if tog<0:
             an=-1
             h=m*scale1
@@ -134,16 +135,7 @@ while True:
         h=-m*scale1
         
     
-    scale2=h+an*m*scale1
-    mult2=scale2*255
-    # print(mult2)
-
-
-    
-        
-    #     an=-1
-    # scale2=2*h+an*m*scale1
-    # mult2=scale2*255
+    scale2=mult2/255
 
     x=int(scale1*a.shape[1])
     y=int(scale2*a.shape[0])
@@ -165,6 +157,26 @@ while True:
     # temp0=a[y,x,0]
     # temp1=a[y,x,1]
     # temp2=a[y,x,2]
+    if i==0:
+        print('h is :',h)
+        print('mult2 is :',mult2)
+        # break
+
+    if i==1:
+        print('i is :',i)
+        print('mult2 is :',mult2)
+    i=i+1
+
+    scale2=h+an*m*scale1
+    mult2=scale2*255
+
+
+    if i==1:
+        print('After calculation:')
+        print('h is :',h)
+        print('mult2 is :',mult2)
+        print('an is :',an)
+        print('scale1 is :',scale1)
 
     key = cv2.waitKey(5) & 0xFF
     if key==27:
