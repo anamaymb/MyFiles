@@ -29,8 +29,8 @@ i=0
 mult1=127               # initial position  (x)
 mult2=127               # (y)
 
-speed=0.5               # Speed of Piece
-brk=0.0                 # Friction
+speed=5.5               # Speed of Piece
+brk=0.05                 # Friction
 m=1.7                   # slope (magnitude)
 an=-1                   # slope (direction) (inital) (+ve/-ve)
 slope=m
@@ -154,12 +154,10 @@ while True:
             tog=-speed
     else:
         tog=0
+
     ret, a = cap.read()
     a=cv2.resize(a,(int(a.shape[0]*1.2),int(a.shape[0]*1.2)))
 
-    # cv2.imshow('insidem',sm)
-    # mult1 = cv2.getTrackbarPos("X","Trackbars")
-    # mult2 = cv2.getTrackbarPos("Y","Trackbars")
 
     if mult1>=255:
         tog=-speed
@@ -277,26 +275,26 @@ while True:
     
     cv2.imshow('Z',z)
     
-    if i==0:
-        print('h is :',h)
-        print('mult2 is :',mult2)
+    # if i==0:
+    #     print('h is :',h)
+    #     print('mult2 is :',mult2)
 
 
-    if i==1:
-        print('i is :',i)
-        print('mult2 is :',mult2)
+    # if i==1:
+    #     print('i is :',i)
+    #     print('mult2 is :',mult2)
     i=i+1
 
     scale2=h+an*m*scale1
     mult2=scale2*255
 
 
-    if i==1:
-        print('After calculation:')
-        print('h is :',h)
-        print('mult2 is :',mult2)
-        print('an is :',an)
-        print('scale1 is :',scale1)
+    # if i==1:
+    #     print('After calculation:')
+    #     print('h is :',h)
+    #     print('mult2 is :',mult2)
+    #     print('an is :',an)
+    #     print('scale1 is :',scale1)
         # break
 
     key = cv2.waitKey(5) & 0xFF
