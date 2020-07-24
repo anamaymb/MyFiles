@@ -2,22 +2,18 @@ import cv2
 import numpy as np
 import math
 
-def nothing(x):
-	pass
+# def nothing(x):
+# 	pass
 
 shorten=0.4	
 
 cap = cv2.VideoCapture(0)
 ret, a = cap.read()
 z=a
-# a=cv2.resize(a,(int(a.shape[1]*shorten),int(a.shape[0]*shorten)))
-z=cv2.resize(z,(int(z.shape[1]*shorten),int(z.shape[0]*shorten)))
 
-# print(z.shape)
-cv2.namedWindow("Trackbars")
-cv2.createTrackbar("X","Trackbars",0,255,nothing)
-cv2.createTrackbar("Y","Trackbars",0,255,nothing)
-
+# cv2.namedWindow("Trackbars")
+# cv2.createTrackbar("X","Trackbars",0,255,nothing)
+# cv2.createTrackbar("Y","Trackbars",0,255,nothing)
 
 
 flag=0
@@ -37,49 +33,9 @@ slope=m
 q=1
 cv2.imshow('WASD to move',a)
 
-while True:
-    ret, a = cap.read()
-    a=cv2.resize(a,(int(a.shape[0]*1.2),int(a.shape[0]*1.2)))
-    z=a
-    # z=cv2.resize(z,(int(z.shape[1]*shorten),int(z.shape[0]*shorten)))
-
-    
-    
-    # mult1 = cv2.getTrackbarPos("X","Trackbars")
-    # mult2 = cv2.getTrackbarPos("Y","Trackbars")
-
-    if cv2.waitKey(0) & 0xFF == ord('s'):
-        mult2=mult2+2
-    elif cv2.waitKey(0) & 0xFF == ord('w'):
-        mult2=mult2-2
-    elif cv2.waitKey(0) & 0xFF == ord('d'):
-        mult1=mult1+2
-    elif cv2.waitKey(0) & 0xFF == ord('a'):
-        mult1=mult1-2
-
-    elif cv2.waitKey(0) & 0xFF == ord('l'):
-        slope=slope+0.2
-        print(slope)
-    elif cv2.waitKey(0) & 0xFF == ord('j'):
-        slope=slope-0.2
-        print(slope)
-    elif cv2.waitKey(0) & 0xFF == ord('i'):
-        q=1
-    elif cv2.waitKey(0) & 0xFF == ord('k'):
-        q=-1
-
-    elif cv2.waitKey(0) & 0xFF == ord('t'):
-        print('f')
-        break
 
 
-    scale1=mult1/255
-    scale2=mult2/255    
-    x=int(scale1*z.shape[1])
-    y=int(scale2*z.shape[0])
-
-    z = cv2.circle(z,(x,y), 8, (255,255,255), -1)
-
+def graphics(z):
     z = cv2.rectangle(z, (75,55), (500,70), (0,255,0),1)
     z = cv2.rectangle(z, (75,505), (500,520), (0,255,0),1)
     
@@ -123,6 +79,49 @@ while True:
     z = cv2.circle(z,(int(z.shape[0]/2),int(z.shape[0]/2)), 8, (0,0,255), -1)
 
 
+
+
+while True:
+    ret, a = cap.read()
+    a=cv2.resize(a,(int(a.shape[0]*1.2),int(a.shape[0]*1.2)))
+    z=a
+
+    # z=cv2.resize(z,(int(z.shape[1]*shorten),int(z.shape[0]*shorten)))
+    
+    # mult1 = cv2.getTrackbarPos("X","Trackbars")
+    # mult2 = cv2.getTrackbarPos("Y","Trackbars")
+
+    if cv2.waitKey(0) & 0xFF == ord('s'):
+        mult2=mult2+2
+    elif cv2.waitKey(0) & 0xFF == ord('w'):
+        mult2=mult2-2
+    elif cv2.waitKey(0) & 0xFF == ord('d'):
+        mult1=mult1+2
+    elif cv2.waitKey(0) & 0xFF == ord('a'):
+        mult1=mult1-2
+
+    elif cv2.waitKey(0) & 0xFF == ord('l'):
+        slope=slope+0.2
+    elif cv2.waitKey(0) & 0xFF == ord('j'):
+        slope=slope-0.2
+    elif cv2.waitKey(0) & 0xFF == ord('i'):
+        q=1
+    elif cv2.waitKey(0) & 0xFF == ord('k'):
+        q=-1
+
+    elif cv2.waitKey(0) & 0xFF == ord('t'):
+        break
+
+
+    scale1=mult1/255
+    scale2=mult2/255    
+    x=int(scale1*z.shape[1])
+    y=int(scale2*z.shape[0])
+
+    z = cv2.circle(z,(x,y), 8, (255,255,255), -1)
+
+    graphics(z)
+
     z = cv2.line(z, (x,y), (q*25+x,int(q*slope*25+y)), (0,255,0),2)
 
     cv2.imshow('Init',z)
@@ -138,9 +137,7 @@ if slope>=0:
 else:
     an=-1
 
-
 h=(mult2/255)-an*m*(mult1/255)          # y-intercept
-
 
 tog=q*speed
 
@@ -157,7 +154,6 @@ while True:
 
     ret, a = cap.read()
     a=cv2.resize(a,(int(a.shape[0]*1.2),int(a.shape[0]*1.2)))
-
 
     if mult1>=255:
         tog=-speed
@@ -180,7 +176,6 @@ while True:
         h=scale1*m+1
         # print('scale2')
         an=-1
-
     elif mult2>=255 and an==-1 and tog<0:
         # print('k')
         flag=0
@@ -202,7 +197,6 @@ while True:
 
     if mult2<0 and flag==0:
         # print('b',i)
-        # print('mult22222',mult2)
         if tog<0:
             an=-1
             h=m*scale1
@@ -231,58 +225,11 @@ while True:
     z = cv2.circle(a,(x,y), 8, (255,255,255), -1)
     z = cv2.circle(z,(x,y), 5, (255,0,0), -1)
     
-    z = cv2.rectangle(z, (75,55), (500,70), (0,255,0),1)
-    z = cv2.rectangle(z, (75,505), (500,520), (0,255,0),1)
     
-    z = cv2.circle(z,(75,62), 8, (0,0,255), -1)
-    z = cv2.circle(z,(500,62), 8, (0,0,255), -1)
-    z = cv2.circle(z,(500,512), 8, (0,0,255), -1)
-    z = cv2.circle(z,(75,512), 8, (0,0,255), -1)
+    graphics(z)
 
-
-    z = cv2.rectangle(z, (55,75), (70,500), (0,255,0),1)
-    z = cv2.rectangle(z, (505,75), (520,500), (0,255,0),1)
-
-    z = cv2.circle(z,(62,75), 8, (0,0,255), -1)
-    z = cv2.circle(z,(62,500), 8, (0,0,255), -1)
-    z = cv2.circle(z,(512,500), 8, (0,0,255), -1)
-    z = cv2.circle(z,(512,75), 8, (0,0,255), -1)
-
-
-    z = cv2.circle(z,(0,0), 18, (0,0,255), -1)
-    z = cv2.circle(z,(0,z.shape[0]), 18, (0,0,255), -1)
-    z = cv2.circle(z,(z.shape[0],0), 18, (0,0,255), -1)
-    z = cv2.circle(z,(z.shape[0],z.shape[0]), 18, (0,0,255), -1)
-
-    z = cv2.line(z, (35,35), (170,170), (0,255,0),1)
-    z = cv2.line(z, (z.shape[0]-35,35), (z.shape[0]-170,170), (0,255,0),1)    
-    z = cv2.line(z, (35,z.shape[0]-35), (170,z.shape[0]-170), (0,255,0),1)
-    z = cv2.line(z, (z.shape[0]-35,z.shape[0]-35), (z.shape[0]-170,z.shape[0]-170), (0,255,0),1)
-
-
-
-    z = cv2.line(z, (int(z.shape[0]/2-48),int(z.shape[0]/2)), (int(z.shape[0]/2+48),int(z.shape[0]/2)), (0,0,255),1)
-    z = cv2.line(z, (int(z.shape[0]/2),int(z.shape[0]/2-48)), (int(z.shape[0]/2),int(z.shape[0]/2+48)), (0,0,255),1)
-    z = cv2.line(z, (int(z.shape[0]/2-34),int(z.shape[0]/2-34)), (int(z.shape[0]/2+34),int(z.shape[0]/2+34)), (0,0,0),1)
-    z = cv2.line(z, (int(z.shape[0]/2+34),int(z.shape[0]/2-34)), (int(z.shape[0]/2-34),int(z.shape[0]/2+34)), (0,0,0),1)
-
-    z = cv2.circle(z,(170,170), 18, (0,255,255), 1)
-    z = cv2.circle(z,(z.shape[0]-170,170), 18, (0,255,255), 1)
-    z = cv2.circle(z,(170,z.shape[0]-170), 18, (0,255,255), 1)
-    z = cv2.circle(z,(z.shape[0]-170,z.shape[0]-170), 18, (0,255,255), 1)
-    z = cv2.circle(z,(int(z.shape[0]/2),int(z.shape[0]/2)), 48, (0,0,0), 1)
-    z = cv2.circle(z,(int(z.shape[0]/2),int(z.shape[0]/2)), 8, (0,0,255), -1)
-    
     cv2.imshow('Z',z)
     
-    # if i==0:
-    #     print('h is :',h)
-    #     print('mult2 is :',mult2)
-
-
-    # if i==1:
-    #     print('i is :',i)
-    #     print('mult2 is :',mult2)
     i=i+1
 
     scale2=h+an*m*scale1
