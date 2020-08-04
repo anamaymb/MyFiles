@@ -23,8 +23,8 @@ flag3=[0,0,0,0,0]
 
 c=0
 
-mult1=[127,120,0,0,0]               # initial position  (x[0])
-mult2=[127,254,0,0,0]               # (y[0])
+mult1=[37,50,0,0,0]               # initial position  (x[0])
+mult2=[127,154,0,0,0]               # (y[0])
 
 h=[0,0,0,0,0]
 
@@ -33,7 +33,7 @@ scale2=[0,0,0,0,0]
 x=[0,0,0,0,0]
 y=[0,0,0,0,0]
 
-speed=[1.5,0.0,0,0,0]               # Speed of Piece
+speed=[0.5,0.0,0,0,0]               # Speed of Piece
 brk=[0.0,0.0,0,0,0]                 # Friction
 m=[1.7,1,0,0,0]                   # slope[0] (magnitude)
 an=[-1,-1,0,0,0]                   # slope[0] (direction) (inital) (+ve/-ve)
@@ -98,13 +98,13 @@ while True:
     z=a
 
     if cv2.waitKey(0) & 0xFF == ord('s'):
-        mult2[0]=mult2[0]+2
+        mult2[0]=mult2[0]+3
     elif cv2.waitKey(0) & 0xFF == ord('w'):
-        mult2[0]=mult2[0]-2
+        mult2[0]=mult2[0]-3
     elif cv2.waitKey(0) & 0xFF == ord('d'):
-        mult1[0]=mult1[0]+2
+        mult1[0]=mult1[0]+4
     elif cv2.waitKey(0) & 0xFF == ord('a'):
-        mult1[0]=mult1[0]-2
+        mult1[0]=mult1[0]-4
 
     elif cv2.waitKey(0) & 0xFF == ord('l'):
         slope[0]=slope[0]+0.2
@@ -219,24 +219,76 @@ while True:
             flag[i]=1
             
 
-        elif mult2[i]<=0 and tog[i]>0 and flag2[i]==0:
-            # print('z')
-            an[i]=1
-            flag2[i]=1
-            h[i]=-m[i]*scale1[i]
+        # elif mult2[i]<=0 and tog[i]>0 and flag2[i]==0:
+        #     print('z')
+        #     an[i]=1
+        #     flag2[i]=1
+        #     h[i]=-m[i]*scale1[i]
             
         
+
         scale2[i]=mult2[i]/255
+        if (abs(mult1[0]-mult1[1])<8) and (abs(mult2[0]-mult2[1])<8) and flag2[0]==0 and i==1:
+            print('Anamay')
+            flag2[0]=1
+            speed[1]=1.5
+            
+            tog[1]=speed[1]
+            m[1]=(mult2[1]-mult2[0])/(mult1[1]-mult1[0])
+            if m[1]>0 and mult2[0]>mult2[1] : 
+                tog[1]=-speed[1]
+            elif m[1]<0 and mult1[0]>mult1[1]:
+                tog[1]=-speed[1]
+
+            print('m',m[1])
+            if m[1]>2.5:
+                m[1]=2.5
+            if m[1]<-2.5:
+                m[1]=-2.5
+
+            an[1]=an[0]
+            if an[0]<0 and m[1]>0:
+                an[1]=1 
+            if m[1]>0:
+                h[1]=abs((mult1[1]/255)*m[1]-(mult2[1]/255))
+            else:
+                an[1]=-1
+                m[1]=-m[1]
+                h[1]=(mult1[1]/255)*m[1]+(mult2[1]/255)
+        
+        # scale[i]=mult2[i]/255
+
         x[i]=int(scale1[i]*a.shape[1])
         y[i]=int(scale2[i]*a.shape[0])
 
+
+    if flag2[0]==1 and i==1:
+        flag2[0]=0
+        print('mult2',mult2[1])
+        print('mult1',mult1[1])
+        print('h',h[1])
+        # print('m',m[1])
+        print('speed',speed[1])
+
+        # scale2[1]=h[1]+an[1]*m[1]*scale1[1]
+        # mult2[1]=scale2[1]*255
+
+        # x[1]=int(scale1[1]*a.shape[1])
+        # y[1]=int(scale2[1]*a.shape[0])
+
+        # z = cv2.circle(a,(x[0],y[0]), 8, (255,255,255), -1)
+        # z = cv2.circle(z,(x[0],y[0]), 5, (255,0,0), -1)
+
+        # z = cv2.circle(z,(x[1],y[1]), 8, (0,255,255), -1)
+        # z = cv2.circle(z,(x[1],y[1]), 5, (255,0,255), -1)
+        # break        
 
     # z = cv2.circle(a,(x[0],y[0]), 8, (255,255,255), -1)
     # z = cv2.rectangle(z, (0,0), (z.shape[0],z.shape[0]), (155,255,255),-1)
     z = cv2.circle(a,(x[0],y[0]), 8, (255,255,255), -1)
     z = cv2.circle(z,(x[0],y[0]), 5, (255,0,0), -1)
 
-    z = cv2.circle(a,(x[1],y[1]), 8, (0,255,255), -1)
+    z = cv2.circle(z,(x[1],y[1]), 8, (0,255,255), -1)
     z = cv2.circle(z,(x[1],y[1]), 5, (255,0,255), -1)
     
     
