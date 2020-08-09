@@ -6,8 +6,8 @@ int main()
 
     float hours[12]={120,150,180,210,240,270,300,330,0,30,60,90};
 
-    int  hr=10;
-    float mint=55,sec=0;
+    int  hr=8;
+    float mint=43,sec=38;
     float mang;
 
     if(mint>=45 && mint<60)
