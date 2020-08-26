@@ -57,5 +57,43 @@ int main()
 
     }
 
+
+    int src,flag[5]={0,0,0,0,0},dist[5]={10000,10000,10000,10000,10000},count=0;
+    printf("Enter the start point : ");
+    scanf("\n%d",&src);
+    flag[src]=1;dist[src]=0;
+
+
+    while(count<(n+1))
+    {
+    for(int i=0;i<n;i++)
+    {
+        if(flag[i]!=1 && graph[src*(src<=i)+i*(src>i)][i*(src<=i)+src*(src>i)]!=0)
+        {
+            if(dist[i]>dist[src]+graph[src*(src<=i)+i*(src>i)][i*(src<=i)+src*(src>i)])
+            {
+                dist[i]=dist[src]+graph[src*(src<=i)+i*(src>i)][i*(src<=i)+src*(src>i)];
+            }
+        }
+        
+    }
+    int min=9999;
+    for (int j=0;j<n;j++)
+    {
+
+        if(!flag[j])
+        {
+            if(dist[j]<min)
+            {
+                min=dist[j];
+                src=j;
+            }
+        }
+    }
+    flag[src]=1;
+    count++;
+    }
+    printf("%d %d %d %d %d ",dist[0],dist[1],dist[2],dist[3],dist[4]);
+
     return 0;
 }
