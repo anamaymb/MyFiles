@@ -57,7 +57,6 @@ flag[x][y]=1;
 path[x][y]=1;
 
 while(x!=X || y!=Y)
-
 {
     int minx,miny;
     float gmax=9999;
@@ -83,7 +82,7 @@ while(x!=X || y!=Y)
     y=miny;
     path[x][y]=1;
     printf("%d %d\n",x,y);
-    break;
+
 }
 
 
