@@ -225,5 +225,39 @@ for(int number=0; number<9;number++)
     printf("\n");
 }
 
+
+
+
+
+    float TestIp[100]= {0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,       //1                                    4
+                      0 , 0 , 0 , 0 , 0 , 1 , 1 , 0 , 0 , 0 ,       //2
+                      0 , 0 , 0 , 0 , 1 , 0 , 1 , 0 , 0 , 0 ,       //3
+                      0 , 0 , 0 , 1 , 0 , 0 , 1 , 0 , 0 , 0 ,       //4
+                      0 , 0 , 1 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,       //5
+                      0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,       //6
+                      0 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 0 ,       //7
+                      0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,       //8
+                      0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,       //9
+                      0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 };      //10
+
+
+    float highest=0;
+    for(int j=0;j<10;j++)
+    {
+        output[j]=0;
+        for(int i=0;i<100;i++)
+        {
+            output[j]+=weights[j][i]*TestIp[i];
+        }
+        if(highest<output[j])
+        highest=output[j];
+        
+    }
+    for(int j=0;j<10;j++)
+    {
+        printf("%f\n",output[j]/highest);
+    }
+
+
     return 0;
 }
