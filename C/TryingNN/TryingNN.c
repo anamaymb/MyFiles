@@ -4,7 +4,7 @@
 
 float weights[10][100],weights_prev[10][100];
 
-float output[10],expectedOp[10],ExNum[10]={16,20,16,22,21,23,15,24,23,20};
+float output[10],expectedOp[10],ExNum[10]={20,16,16,22,21,23,15,24,23,20};
 
 float input[10][100]={
 
@@ -161,7 +161,7 @@ float sumOfPrevSquares(int nthWeight, float h, int nthRow)
 int main()
 {
 
-for(int number=0; number<9;number++)
+for(int number=0; number<10;number++)
 {
     for(int i=0;i<10;i++)
     {
@@ -175,7 +175,7 @@ for(int number=0; number<9;number++)
     }
 
     
-    float kp[10]={0.005 , 0.004 , 0.004 , 0.0035 , 0.003 , 0.0022 ,0.0052 ,0.002 ,0.002 ,0.004}, h=0.01;
+    float kp[10]={0.004 , 0.005 , 0.004 , 0.0035 , 0.003 , 0.0022 ,0.0052 ,0.002 ,0.002 ,0.004}, h=0.01;
             //      2       1       3       4       5       6       7       8       9       0
 
 //          {       16,     20,     16,     22,     21,     23,     15,     24,     23,     20};
