@@ -1,12 +1,11 @@
 import numpy as np
 
-weights = np.empty((10,100),np.float)
-weights_prev = np.empty((10,100),np.float)
+weights = np.zeros((10,100),np.float)
+weights_prev = np.zeros((10,100),np.float)
 
 output = np.empty(10)
 expectedOp = np.empty((10),np.float)
 ExNum=np.array([20,16,16,22,21,23,15,24,23,20],np.float)
-# Input=np.arange(10,100)
 Input=np.array([[0 , 0 , 0 , 0 , 1 , 1 , 0 , 0 , 0 , 0 ,       #1                                     1
                  0 , 0 , 0 , 0 , 1 , 1 , 0 , 0 , 0 , 0 ,       #2
                  0 , 0 , 0 , 0 , 1 , 1 , 0 , 0 , 0 , 0 ,       #3
@@ -117,102 +116,76 @@ Input=np.array([[0 , 0 , 0 , 0 , 1 , 1 , 0 , 0 , 0 , 0 ,       #1               
                  0 , 0 , 0 , 1 , 1 , 1 , 1 , 0 , 0 , 0 ,       #9
                  0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]],dtype=np.float)
 
-def calculateOp(j,h,nthWeight,nthRow):
-    op=0
-    for k in range (0,100):
-        op=op+Input[nthRow][k]*(weights[j][k]+h*(k==nthWeight))
-    return op
 
-
-def sumOfSquares(nthWeight,offset,nthRow):
-    sum=0
-    I=nthRow
-    sum=sum+(expectedOp[I]-calculateOp(I,offset,nthWeight,nthRow))*(expectedOp[I]-calculateOp(I,offset,nthWeight,nthRow))
-    return sum
-
-
-def calculateOpPrev(j,h,nthWeight,nthRow):
-    op=0.0
-    for k in range (0,100):
-        op=op+Input[nthRow][k]*(weights_prev[j][k]+h*(k==nthWeight))
-
-    return op
-
-
-def sumOfPrevSquares(nthWeight,h,nthRow):
-    sum=0
-    I=nthRow
-    sum=sum+(expectedOp[I]-calculateOpPrev(I,h,nthWeight,nthRow))*(expectedOp[I]-calculateOpPrev(I,h,nthWeight,nthRow))
+def squares(x,str):
+    if str == 'prev':
+        res = np.dot(weights_prev[x],Input[x])
+    elif str == 'normal':
+        res = np.dot(weights[x],Input[x])
     
-    return sum
+    return (expectedOp[x]-res)*(expectedOp[x]-res)
 
 
 for number in range (0,10):
     
     for i in range (0,10):
         expectedOp[i]=0
-        if i==number :
+        if i==number:
             expectedOp[i]=ExNum[i]
-
-    for j in range (0,100):
-        weights[number][j]=0
-        weights_prev[number][j]=0
-    
-
     
     kp=np.array([0.004 , 0.005 , 0.004 , 0.0035 , 0.003 , 0.0022 ,0.0052 ,0.002 ,0.002 ,0.004],np.float)
     h=0.01
     #         1       2       3       4       5       6       7       8       9       0
-
     #         20,     16,     16,     22,     21,     23,     15,     24,     23,     20
 
     for count in range (0,100):
-        
         for i in range (0,100):
-            if sumOfPrevSquares(i,0,number)>sumOfPrevSquares(i,h,number):
-                weights[number][i]=weights[number][i]+kp[number]*abs(sumOfPrevSquares(0,0,number))
 
-            elif sumOfPrevSquares(i,0,number)>sumOfPrevSquares(i,-h,number):
-                weights[number][i]=weights[number][i]-kp[number]*abs(sumOfPrevSquares(0,0,number))
-        
-        for i in range (0,100):
-            weights_prev[number][i]=weights[number][i]
+            SOPS0=squares(number,'prev')
+            weights_prev[number][i]=weights_prev[number][i]+h
+            SOPSh=squares(number,'prev')
+            weights_prev[number][i]=weights_prev[number][i]-h
+
+            if SOPS0>SOPSh:
+                weights[number][i]=(weights[number][i])+kp[number]*abs(squares(number,'prev'))
+
+            elif SOPS0<SOPSh:
+                weights[number][i]=(weights[number][i])-kp[number]*abs(squares(number,'prev'))
+
+        weights_prev[number]=weights[number]
 
 
-    # for i in range (0,100):
-    #     if i%10==0:
-    #         print(' ')
-    #     if weights[number][i] != 0.00000 :
-    print(weights[number],end=" ")
-        # else:
-        #     print('         ',end=" ")
+    for i in range (0,100):
+        if i%10==0:
+            print(' ')
+        if weights[number][i] != 0.00000 :
+            print('%.5f'%weights[number][i],end=" ")
+        else:
+            print('       ',end=" ")
     
 
     print('\n')
 
 
-# for i in range (0,100):
-#     print(Input[0][i],end=" ")
 
-# TestIp=np.array( [0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,      #1                                    4
-#                   0 , 0 , 0 , 0 , 0 , 1 , 1 , 0 , 0 , 0 ,      #2
-#                   0 , 0 , 0 , 0 , 1 , 0 , 1 , 0 , 0 , 0 ,      #3
-#                   0 , 0 , 0 , 1 , 0 , 0 , 1 , 0 , 0 , 0 ,      #4
-#                   0 , 0 , 1 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,      #5
-#                   0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,      #6
-#                   0 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 0 ,      #7
-#                   0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,      #8
-#                   0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,      #9
-#                   0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ],np.int32)      #10
+TestIp=np.array( [0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,      #1                                    4
+                  0 , 0 , 0 , 0 , 0 , 1 , 1 , 0 , 0 , 0 ,      #2
+                  0 , 0 , 0 , 0 , 1 , 1 , 1 , 0 , 0 , 0 ,      #3
+                  0 , 0 , 0 , 1 , 1 , 0 , 1 , 0 , 0 , 0 ,      #4
+                  0 , 0 , 1 , 1 , 0 , 0 , 1 , 0 , 0 , 0 ,      #5
+                  0 , 1 , 1 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,      #6
+                  1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 0 ,      #7
+                  0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,      #8
+                  0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,      #9
+                  0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ],np.int32)      #10
 
-# highest=0
-# for j in range (0,10):
-#     output[j]=0
-#     for i in range (0,100):
-#         output[j]=output[j] + weights[j][i]*TestIp[i]
-#     if highest<output[j]:
-#         highest=output[j]
+highest=0
+for j in range (0,10):
+    output[j]=0
+    for i in range (0,100):
+        output[j]=output[j] + weights[j][i]*TestIp[i]
+    if highest<output[j]:
+        highest=output[j]
 
-# for j in range (0,10):
-#     print(output[j]/highest)
-#     print('\n')
+for j in range (0,10):
+    print('%.5f'%(output[j]/highest))
