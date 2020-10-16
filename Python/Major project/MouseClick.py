@@ -27,8 +27,8 @@ def function(event, x, y, flags, params):
 # a = cv2.imread("solar.jpg",-1)
 # z = cv2.imread("solar.jpg",-1)
 # ret, a = cap.read()
-a = cv2.imread("thermal_4.jpg",-1)
-z = cv2.imread("thermal_4.jpg",-1)
+a = cv2.imread("thermal_2.jpg",-1)
+z = cv2.imread("thermal_2.jpg",-1)
 
 cv2.namedWindow('image')
 cv2.setMouseCallback('image', function)

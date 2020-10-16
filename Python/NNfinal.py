@@ -1,4 +1,8 @@
+import cv2
 import numpy as np
+
+
+img = cv2.imread("three.jpg",-1)
 
 weights = np.zeros((10,100),np.float)
 weights_prev = np.zeros((10,100),np.float)
@@ -155,16 +159,16 @@ for number in range (0,10):
         weights_prev[number]=weights[number]
 
 
-    for i in range (0,100):
-        if i%10==0:
-            print(' ')
-        if weights[number][i] != 0.00000 :
-            print('%.5f'%weights[number][i],end=" ")
-        else:
-            print('       ',end=" ")
+    # for i in range (0,100):
+    #     if i%10==0:
+    #         print(' ')
+    #     if weights[number][i] != 0.00000 :
+    #         print('%.5f'%weights[number][i],end=" ")
+    #     else:
+    #         print('       ',end=" ")
     
 
-    print('\n')
+    # print('\n')
 
 
 
