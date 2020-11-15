@@ -2,8 +2,8 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 
-img=cv2.imread('thermal_3.jpg')
-IMG=cv2.imread('thermal_3.jpg')
+img=cv2.imread('thermal_1.jpg')
+IMG=cv2.imread('thermal_1.jpg')
 
 # gray=np.zeros((img.shape[0],img.shape[1],1),dtype=np.uint16)
 
