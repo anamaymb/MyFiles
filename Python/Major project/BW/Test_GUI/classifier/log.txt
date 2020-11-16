@@ -11,7 +11,7 @@ Info file name: D:\GITHUB\MyFiles-master\Python\Major project\BW\Test_GUI\pos.ls
 Img file name: (NULL)
 Vec file name: D:\GITHUB\MyFiles-master\Python\Major project\BW\Test_GUI\pos_samples.vec
 BG  file name: (NULL)
-Num: 48
+Num: 68
 BG color: 0
 BG threshold: 80
 Invert: FALSE
@@ -24,7 +24,7 @@ Width: 24
 Height: 24
 Max Scale: -1
 Create training samples from images collection...
-Done. Created 48 samples
+Done. Created 68 samples
 
 **************************************************
 ************* TRAINING CLASSIFIER ****************
@@ -35,9 +35,9 @@ cascadeDirName: D:\GITHUB\MyFiles-master\Python\Major project\BW\Test_GUI\classi
 vecFileName: D:\GITHUB\MyFiles-master\Python\Major project\BW\Test_GUI\pos_samples.vec
 bgFileName: D:\GITHUB\MyFiles-master\Python\Major project\BW\Test_GUI\neg.lst
 
-numPos: 48
-numNeg: 117
-numStages: 20
+numPos: 68
+numNeg: 119
+numStages: 21
 precalcValBufSize[Mb] : 1024
 precalcIdxBufSize[Mb] : 1024
 acceptanceRatioBreakValue : -1
@@ -105,9 +105,27 @@ POS current samples: 45
 POS current samples: 46
 POS current samples: 47
 POS current samples: 48
-POS count : consumed   48 : 48
-
-Invalid SOS parameters for sequential JPEG
+POS current samples: 49
+POS current samples: 50
+POS current samples: 51
+POS current samples: 52
+POS current samples: 53
+POS current samples: 54
+POS current samples: 55
+POS current samples: 56
+POS current samples: 57
+POS current samples: 58
+POS current samples: 59
+POS current samples: 60
+POS current samples: 61
+POS current samples: 62
+POS current samples: 63
+POS current samples: 64
+POS current samples: 65
+POS current samples: 66
+POS current samples: 67
+POS current samples: 68
+POS count : consumed   68 : 68
 
 NEG current samples: 1
 NEG current samples: 2
@@ -226,18 +244,17 @@ NEG current samples: 114
 NEG current samples: 115
 NEG current samples: 116
 NEG current samples: 117
-NEG count : acceptanceRatio    117 : 1
+NEG current samples: 118
+NEG current samples: 119
+NEG count : acceptanceRatio    119 : 1
 
-Precalculation time: 1.271
+Precalculation time: 1.227
 
 +----+---------+---------+
 |  N |    HR   |    FA   |
 +----+---------+---------+
 
-|   1|        1|        1|
-+----+---------+---------+
-
-|   2|        1| 0.034188|
+|   1|        1|        0|
 +----+---------+---------+
 
 END>
@@ -295,7 +312,27 @@ POS current samples: 45
 POS current samples: 46
 POS current samples: 47
 POS current samples: 48
-POS count : consumed   48 : 48
+POS current samples: 49
+POS current samples: 50
+POS current samples: 51
+POS current samples: 52
+POS current samples: 53
+POS current samples: 54
+POS current samples: 55
+POS current samples: 56
+POS current samples: 57
+POS current samples: 58
+POS current samples: 59
+POS current samples: 60
+POS current samples: 61
+POS current samples: 62
+POS current samples: 63
+POS current samples: 64
+POS current samples: 65
+POS current samples: 66
+POS current samples: 67
+POS current samples: 68
+POS count : consumed   68 : 68
 
 NEG current samples: 1
 NEG current samples: 2
@@ -414,15 +451,17 @@ NEG current samples: 114
 NEG current samples: 115
 NEG current samples: 116
 NEG current samples: 117
-NEG count : acceptanceRatio    117 : 0.0918367
+NEG current samples: 118
+NEG current samples: 119
+NEG count : acceptanceRatio    119 : 0.0307097
 
-Precalculation time: 1.047
+Precalculation time: 1.211
 
 +----+---------+---------+
 |  N |    HR   |    FA   |
 +----+---------+---------+
 
-|   1|        1| 0.025641|
+|   1|        1|        0|
 +----+---------+---------+
 
 END>
@@ -479,7 +518,27 @@ POS current samples: 45
 POS current samples: 46
 POS current samples: 47
 POS current samples: 48
-POS count : consumed   48 : 48
+POS current samples: 49
+POS current samples: 50
+POS current samples: 51
+POS current samples: 52
+POS current samples: 53
+POS current samples: 54
+POS current samples: 55
+POS current samples: 56
+POS current samples: 57
+POS current samples: 58
+POS current samples: 59
+POS current samples: 60
+POS current samples: 61
+POS current samples: 62
+POS current samples: 63
+POS current samples: 64
+POS current samples: 65
+POS current samples: 66
+POS current samples: 67
+POS current samples: 68
+POS count : consumed   68 : 68
 
 NEG current samples: 1
 NEG current samples: 2
@@ -598,9 +657,11 @@ NEG current samples: 114
 NEG current samples: 115
 NEG current samples: 116
 NEG current samples: 117
-NEG count : acceptanceRatio    117 : 0.00426525
+NEG current samples: 118
+NEG current samples: 119
+NEG count : acceptanceRatio    119 : 0.00790855
 
-Precalculation time: 1.044
+Precalculation time: 1.206
 
 +----+---------+---------+
 |  N |    HR   |    FA   |
@@ -609,12 +670,12 @@ Precalculation time: 1.044
 |   1|        1|        1|
 +----+---------+---------+
 
-|   2|        1|0.0940171|
+|   2|        1|0.0504202|
 +----+---------+---------+
 
 END>
 
-Training until now has taken 0 days 0 hours 0 minutes 5 seconds.
+Training until now has taken 0 days 0 hours 0 minutes 6 seconds.
 
 ===== TRAINING 3-stage =====
 <BEGIN
@@ -666,7 +727,27 @@ POS current samples: 45
 POS current samples: 46
 POS current samples: 47
 POS current samples: 48
-POS count : consumed   48 : 48
+POS current samples: 49
+POS current samples: 50
+POS current samples: 51
+POS current samples: 52
+POS current samples: 53
+POS current samples: 54
+POS current samples: 55
+POS current samples: 56
+POS current samples: 57
+POS current samples: 58
+POS current samples: 59
+POS current samples: 60
+POS current samples: 61
+POS current samples: 62
+POS current samples: 63
+POS current samples: 64
+POS current samples: 65
+POS current samples: 66
+POS current samples: 67
+POS current samples: 68
+POS count : consumed   68 : 68
 
 NEG current samples: 1
 NEG current samples: 2
@@ -785,9 +866,11 @@ NEG current samples: 114
 NEG current samples: 115
 NEG current samples: 116
 NEG current samples: 117
-NEG count : acceptanceRatio    117 : 0.000709895
+NEG current samples: 118
+NEG current samples: 119
+NEG count : acceptanceRatio    119 : 0.0030303
 
-Precalculation time: 0.998
+Precalculation time: 1.207
 
 +----+---------+---------+
 |  N |    HR   |    FA   |
@@ -796,7 +879,7 @@ Precalculation time: 0.998
 |   1|        1|        1|
 +----+---------+---------+
 
-|   2|        1| 0.145299|
+|   2|        1| 0.134454|
 +----+---------+---------+
 
 END>
@@ -805,7 +888,6 @@ Training until now has taken 0 days 0 hours 0 minutes 7 seconds.
 
 ===== TRAINING 4-stage =====
 <BEGIN
-
 POS current samples: 1
 POS current samples: 2
 POS current samples: 3
@@ -854,7 +936,27 @@ POS current samples: 45
 POS current samples: 46
 POS current samples: 47
 POS current samples: 48
-POS count : consumed   48 : 48
+POS current samples: 49
+POS current samples: 50
+POS current samples: 51
+POS current samples: 52
+POS current samples: 53
+POS current samples: 54
+POS current samples: 55
+POS current samples: 56
+POS current samples: 57
+POS current samples: 58
+POS current samples: 59
+POS current samples: 60
+POS current samples: 61
+POS current samples: 62
+POS current samples: 63
+POS current samples: 64
+POS current samples: 65
+POS current samples: 66
+POS current samples: 67
+POS current samples: 68
+POS count : consumed   68 : 68
 
 NEG current samples: 1
 NEG current samples: 2
@@ -973,20 +1075,25 @@ NEG current samples: 114
 NEG current samples: 115
 NEG current samples: 116
 NEG current samples: 117
-NEG count : acceptanceRatio    117 : 0.000331365
+NEG current samples: 118
+NEG current samples: 119
+NEG count : acceptanceRatio    119 : 0.00188802
 
-Precalculation time: 1.034
+Precalculation time: 1.158
 
 +----+---------+---------+
 |  N |    HR   |    FA   |
 +----+---------+---------+
 
-|   1|        1| 0.119658|
+|   1|        1|        1|
++----+---------+---------+
+
+|   2|        1| 0.310924|
 +----+---------+---------+
 
 END>
 
-Training until now has taken 0 days 0 hours 0 minutes 10 seconds.
+Training until now has taken 0 days 0 hours 0 minutes 9 seconds.
 
 ===== TRAINING 5-stage =====
 <BEGIN
@@ -1038,9 +1145,27 @@ POS current samples: 45
 POS current samples: 46
 POS current samples: 47
 POS current samples: 48
-POS count : consumed   48 : 48
-
-Invalid SOS parameters for sequential JPEG
+POS current samples: 49
+POS current samples: 50
+POS current samples: 51
+POS current samples: 52
+POS current samples: 53
+POS current samples: 54
+POS current samples: 55
+POS current samples: 56
+POS current samples: 57
+POS current samples: 58
+POS current samples: 59
+POS current samples: 60
+POS current samples: 61
+POS current samples: 62
+POS current samples: 63
+POS current samples: 64
+POS current samples: 65
+POS current samples: 66
+POS current samples: 67
+POS current samples: 68
+POS count : consumed   68 : 68
 
 NEG current samples: 1
 NEG current samples: 2
@@ -1159,24 +1284,22 @@ NEG current samples: 114
 NEG current samples: 115
 NEG current samples: 116
 NEG current samples: 117
-NEG count : acceptanceRatio    117 : 3.50596e-05
+NEG current samples: 118
+NEG current samples: 119
+NEG count : acceptanceRatio    119 : 0.00225439
 
-Precalculation time: 1.225
+Precalculation time: 1.051
 
 +----+---------+---------+
 |  N |    HR   |    FA   |
 +----+---------+---------+
 
-|   1|        1|        1|
-+----+---------+---------+
-
-|   2|        1| 0.188034|
+|   1|        1| 0.260504|
 +----+---------+---------+
 
 END>
 
-Training until now has taken 0 days 0 hours 0 minutes 29 seconds.
-
+Training until now has taken 0 days 0 hours 0 minutes 11 seconds.
 
 ===== TRAINING 6-stage =====
 <BEGIN
@@ -1228,9 +1351,27 @@ POS current samples: 45
 POS current samples: 46
 POS current samples: 47
 POS current samples: 48
-POS count : consumed   48 : 48
-
-Invalid SOS parameters for sequential JPEG
+POS current samples: 49
+POS current samples: 50
+POS current samples: 51
+POS current samples: 52
+POS current samples: 53
+POS current samples: 54
+POS current samples: 55
+POS current samples: 56
+POS current samples: 57
+POS current samples: 58
+POS current samples: 59
+POS current samples: 60
+POS current samples: 61
+POS current samples: 62
+POS current samples: 63
+POS current samples: 64
+POS current samples: 65
+POS current samples: 66
+POS current samples: 67
+POS current samples: 68
+POS count : consumed   68 : 68
 
 Invalid SOS parameters for sequential JPEG
 
@@ -1351,9 +1492,11 @@ NEG current samples: 114
 NEG current samples: 115
 NEG current samples: 116
 NEG current samples: 117
-NEG count : acceptanceRatio    117 : 2.20793e-05
+NEG current samples: 118
+NEG current samples: 119
+NEG count : acceptanceRatio    119 : 0.000578616
 
-Precalculation time: 1.057
+Precalculation time: 1.035
 
 +----+---------+---------+
 |  N |    HR   |    FA   |
@@ -1362,12 +1505,12 @@ Precalculation time: 1.057
 |   1|        1|        1|
 +----+---------+---------+
 
-|   2|        1| 0.222222|
+|   2|        1| 0.243697|
 +----+---------+---------+
 
 END>
 
-Training until now has taken 0 days 0 hours 0 minutes 59 seconds.
+Training until now has taken 0 days 0 hours 0 minutes 13 seconds.
 
 ===== TRAINING 7-stage =====
 <BEGIN
@@ -1419,19 +1562,27 @@ POS current samples: 45
 POS current samples: 46
 POS current samples: 47
 POS current samples: 48
-POS count : consumed   48 : 48
-
-Invalid SOS parameters for sequential JPEG
-
-Invalid SOS parameters for sequential JPEG
-
-Invalid SOS parameters for sequential JPEG
-
-Invalid SOS parameters for sequential JPEG
-
-Invalid SOS parameters for sequential JPEG
-
-Invalid SOS parameters for sequential JPEG
+POS current samples: 49
+POS current samples: 50
+POS current samples: 51
+POS current samples: 52
+POS current samples: 53
+POS current samples: 54
+POS current samples: 55
+POS current samples: 56
+POS current samples: 57
+POS current samples: 58
+POS current samples: 59
+POS current samples: 60
+POS current samples: 61
+POS current samples: 62
+POS current samples: 63
+POS current samples: 64
+POS current samples: 65
+POS current samples: 66
+POS current samples: 67
+POS current samples: 68
+POS count : consumed   68 : 68
 
 NEG current samples: 1
 NEG current samples: 2
@@ -1550,9 +1701,11 @@ NEG current samples: 114
 NEG current samples: 115
 NEG current samples: 116
 NEG current samples: 117
-NEG count : acceptanceRatio    117 : 8.07804e-06
+NEG current samples: 118
+NEG current samples: 119
+NEG count : acceptanceRatio    119 : 0.000397723
 
-Precalculation time: 1.033
+Precalculation time: 1.016
 
 +----+---------+---------+
 |  N |    HR   |    FA   |
@@ -1561,13 +1714,12 @@ Precalculation time: 1.033
 |   1|        1|        1|
 +----+---------+---------+
 
-|   2|        1| 0.273504|
+|   2|        1| 0.319328|
 +----+---------+---------+
 
 END>
 
-Training until now has taken 0 days 0 hours 2 minutes 21 seconds.
-
+Training until now has taken 0 days 0 hours 0 minutes 16 seconds.
 
 ===== TRAINING 8-stage =====
 <BEGIN
@@ -1619,7 +1771,661 @@ POS current samples: 45
 POS current samples: 46
 POS current samples: 47
 POS current samples: 48
-POS count : consumed   48 : 48
+POS current samples: 49
+POS current samples: 50
+POS current samples: 51
+POS current samples: 52
+POS current samples: 53
+POS current samples: 54
+POS current samples: 55
+POS current samples: 56
+POS current samples: 57
+POS current samples: 58
+POS current samples: 59
+POS current samples: 60
+POS current samples: 61
+POS current samples: 62
+POS current samples: 63
+POS current samples: 64
+POS current samples: 65
+POS current samples: 66
+POS current samples: 67
+POS current samples: 68
+POS count : consumed   68 : 68
+
+Invalid SOS parameters for sequential JPEG
+
+NEG current samples: 1
+NEG current samples: 2
+NEG current samples: 3
+NEG current samples: 4
+NEG current samples: 5
+NEG current samples: 6
+NEG current samples: 7
+NEG current samples: 8
+NEG current samples: 9
+NEG current samples: 10
+NEG current samples: 11
+NEG current samples: 12
+NEG current samples: 13
+NEG current samples: 14
+NEG current samples: 15
+NEG current samples: 16
+NEG current samples: 17
+NEG current samples: 18
+NEG current samples: 19
+NEG current samples: 20
+NEG current samples: 21
+NEG current samples: 22
+NEG current samples: 23
+NEG current samples: 24
+NEG current samples: 25
+NEG current samples: 26
+NEG current samples: 27
+NEG current samples: 28
+NEG current samples: 29
+NEG current samples: 30
+NEG current samples: 31
+NEG current samples: 32
+NEG current samples: 33
+NEG current samples: 34
+NEG current samples: 35
+NEG current samples: 36
+NEG current samples: 37
+NEG current samples: 38
+NEG current samples: 39
+NEG current samples: 40
+NEG current samples: 41
+NEG current samples: 42
+NEG current samples: 43
+NEG current samples: 44
+NEG current samples: 45
+NEG current samples: 46
+NEG current samples: 47
+NEG current samples: 48
+NEG current samples: 49
+NEG current samples: 50
+NEG current samples: 51
+NEG current samples: 52
+NEG current samples: 53
+NEG current samples: 54
+NEG current samples: 55
+NEG current samples: 56
+NEG current samples: 57
+NEG current samples: 58
+NEG current samples: 59
+NEG current samples: 60
+NEG current samples: 61
+NEG current samples: 62
+NEG current samples: 63
+NEG current samples: 64
+NEG current samples: 65
+NEG current samples: 66
+NEG current samples: 67
+NEG current samples: 68
+NEG current samples: 69
+NEG current samples: 70
+NEG current samples: 71
+NEG current samples: 72
+NEG current samples: 73
+NEG current samples: 74
+NEG current samples: 75
+NEG current samples: 76
+NEG current samples: 77
+NEG current samples: 78
+NEG current samples: 79
+NEG current samples: 80
+NEG current samples: 81
+NEG current samples: 82
+NEG current samples: 83
+NEG current samples: 84
+NEG current samples: 85
+NEG current samples: 86
+NEG current samples: 87
+NEG current samples: 88
+NEG current samples: 89
+NEG current samples: 90
+NEG current samples: 91
+NEG current samples: 92
+NEG current samples: 93
+NEG current samples: 94
+NEG current samples: 95
+NEG current samples: 96
+NEG current samples: 97
+NEG current samples: 98
+NEG current samples: 99
+NEG current samples: 100
+NEG current samples: 101
+NEG current samples: 102
+NEG current samples: 103
+NEG current samples: 104
+NEG current samples: 105
+NEG current samples: 106
+NEG current samples: 107
+NEG current samples: 108
+NEG current samples: 109
+NEG current samples: 110
+NEG current samples: 111
+NEG current samples: 112
+NEG current samples: 113
+NEG current samples: 114
+NEG current samples: 115
+NEG current samples: 116
+NEG current samples: 117
+NEG current samples: 118
+NEG current samples: 119
+NEG count : acceptanceRatio    119 : 3.13098e-05
+
+Precalculation time: 1.201
+
++----+---------+---------+
+|  N |    HR   |    FA   |
++----+---------+---------+
+
+|   1|        1|        1|
++----+---------+---------+
+
+|   2|        1| 0.285714|
++----+---------+---------+
+
+END>
+
+Training until now has taken 0 days 0 hours 0 minutes 37 seconds.
+
+===== TRAINING 9-stage =====
+<BEGIN
+POS current samples: 1
+POS current samples: 2
+POS current samples: 3
+POS current samples: 4
+POS current samples: 5
+POS current samples: 6
+POS current samples: 7
+POS current samples: 8
+POS current samples: 9
+POS current samples: 10
+POS current samples: 11
+POS current samples: 12
+POS current samples: 13
+POS current samples: 14
+POS current samples: 15
+POS current samples: 16
+POS current samples: 17
+POS current samples: 18
+POS current samples: 19
+POS current samples: 20
+POS current samples: 21
+POS current samples: 22
+POS current samples: 23
+POS current samples: 24
+POS current samples: 25
+POS current samples: 26
+POS current samples: 27
+POS current samples: 28
+POS current samples: 29
+POS current samples: 30
+POS current samples: 31
+POS current samples: 32
+POS current samples: 33
+POS current samples: 34
+POS current samples: 35
+POS current samples: 36
+POS current samples: 37
+POS current samples: 38
+POS current samples: 39
+POS current samples: 40
+POS current samples: 41
+POS current samples: 42
+POS current samples: 43
+POS current samples: 44
+POS current samples: 45
+POS current samples: 46
+POS current samples: 47
+POS current samples: 48
+POS current samples: 49
+POS current samples: 50
+POS current samples: 51
+POS current samples: 52
+POS current samples: 53
+POS current samples: 54
+POS current samples: 55
+POS current samples: 56
+POS current samples: 57
+POS current samples: 58
+POS current samples: 59
+POS current samples: 60
+POS current samples: 61
+POS current samples: 62
+POS current samples: 63
+POS current samples: 64
+POS current samples: 65
+POS current samples: 66
+POS current samples: 67
+POS current samples: 68
+POS count : consumed   68 : 68
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+NEG current samples: 1
+NEG current samples: 2
+NEG current samples: 3
+NEG current samples: 4
+NEG current samples: 5
+NEG current samples: 6
+NEG current samples: 7
+NEG current samples: 8
+NEG current samples: 9
+NEG current samples: 10
+NEG current samples: 11
+NEG current samples: 12
+NEG current samples: 13
+NEG current samples: 14
+NEG current samples: 15
+NEG current samples: 16
+NEG current samples: 17
+NEG current samples: 18
+NEG current samples: 19
+NEG current samples: 20
+NEG current samples: 21
+NEG current samples: 22
+NEG current samples: 23
+NEG current samples: 24
+NEG current samples: 25
+NEG current samples: 26
+NEG current samples: 27
+NEG current samples: 28
+NEG current samples: 29
+NEG current samples: 30
+NEG current samples: 31
+NEG current samples: 32
+NEG current samples: 33
+NEG current samples: 34
+NEG current samples: 35
+NEG current samples: 36
+NEG current samples: 37
+NEG current samples: 38
+NEG current samples: 39
+NEG current samples: 40
+NEG current samples: 41
+NEG current samples: 42
+NEG current samples: 43
+NEG current samples: 44
+NEG current samples: 45
+NEG current samples: 46
+NEG current samples: 47
+NEG current samples: 48
+NEG current samples: 49
+NEG current samples: 50
+NEG current samples: 51
+NEG current samples: 52
+NEG current samples: 53
+NEG current samples: 54
+NEG current samples: 55
+NEG current samples: 56
+NEG current samples: 57
+NEG current samples: 58
+NEG current samples: 59
+NEG current samples: 60
+NEG current samples: 61
+NEG current samples: 62
+NEG current samples: 63
+NEG current samples: 64
+NEG current samples: 65
+NEG current samples: 66
+NEG current samples: 67
+NEG current samples: 68
+NEG current samples: 69
+NEG current samples: 70
+NEG current samples: 71
+NEG current samples: 72
+NEG current samples: 73
+NEG current samples: 74
+NEG current samples: 75
+NEG current samples: 76
+NEG current samples: 77
+NEG current samples: 78
+NEG current samples: 79
+NEG current samples: 80
+NEG current samples: 81
+NEG current samples: 82
+NEG current samples: 83
+NEG current samples: 84
+NEG current samples: 85
+NEG current samples: 86
+NEG current samples: 87
+NEG current samples: 88
+NEG current samples: 89
+NEG current samples: 90
+NEG current samples: 91
+NEG current samples: 92
+NEG current samples: 93
+NEG current samples: 94
+NEG current samples: 95
+NEG current samples: 96
+NEG current samples: 97
+NEG current samples: 98
+NEG current samples: 99
+NEG current samples: 100
+NEG current samples: 101
+NEG current samples: 102
+NEG current samples: 103
+NEG current samples: 104
+NEG current samples: 105
+NEG current samples: 106
+NEG current samples: 107
+NEG current samples: 108
+NEG current samples: 109
+NEG current samples: 110
+NEG current samples: 111
+NEG current samples: 112
+NEG current samples: 113
+NEG current samples: 114
+NEG current samples: 115
+NEG current samples: 116
+NEG current samples: 117
+NEG current samples: 118
+NEG current samples: 119
+NEG count : acceptanceRatio    119 : 3.29197e-05
+
+Precalculation time: 1.215
+
++----+---------+---------+
+|  N |    HR   |    FA   |
++----+---------+---------+
+
+|   1|        1|        1|
++----+---------+---------+
+
+|   2|        1| 0.344538|
++----+---------+---------+
+
+END>
+
+Training until now has taken 0 days 0 hours 0 minutes 58 seconds.
+
+===== TRAINING 10-stage =====
+<BEGIN
+POS current samples: 1
+POS current samples: 2
+POS current samples: 3
+POS current samples: 4
+POS current samples: 5
+POS current samples: 6
+POS current samples: 7
+POS current samples: 8
+POS current samples: 9
+POS current samples: 10
+POS current samples: 11
+POS current samples: 12
+POS current samples: 13
+POS current samples: 14
+POS current samples: 15
+POS current samples: 16
+POS current samples: 17
+POS current samples: 18
+POS current samples: 19
+POS current samples: 20
+POS current samples: 21
+POS current samples: 22
+POS current samples: 23
+POS current samples: 24
+POS current samples: 25
+POS current samples: 26
+POS current samples: 27
+POS current samples: 28
+POS current samples: 29
+POS current samples: 30
+POS current samples: 31
+POS current samples: 32
+POS current samples: 33
+POS current samples: 34
+POS current samples: 35
+POS current samples: 36
+POS current samples: 37
+POS current samples: 38
+POS current samples: 39
+POS current samples: 40
+POS current samples: 41
+POS current samples: 42
+POS current samples: 43
+POS current samples: 44
+POS current samples: 45
+POS current samples: 46
+POS current samples: 47
+POS current samples: 48
+POS current samples: 49
+POS current samples: 50
+POS current samples: 51
+POS current samples: 52
+POS current samples: 53
+POS current samples: 54
+POS current samples: 55
+POS current samples: 56
+POS current samples: 57
+POS current samples: 58
+POS current samples: 59
+POS current samples: 60
+POS current samples: 61
+POS current samples: 62
+POS current samples: 63
+POS current samples: 64
+POS current samples: 65
+POS current samples: 66
+POS current samples: 67
+POS current samples: 68
+POS count : consumed   68 : 68
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+NEG current samples: 1
+NEG current samples: 2
+NEG current samples: 3
+NEG current samples: 4
+NEG current samples: 5
+NEG current samples: 6
+NEG current samples: 7
+NEG current samples: 8
+NEG current samples: 9
+NEG current samples: 10
+NEG current samples: 11
+NEG current samples: 12
+NEG current samples: 13
+NEG current samples: 14
+NEG current samples: 15
+NEG current samples: 16
+NEG current samples: 17
+NEG current samples: 18
+NEG current samples: 19
+NEG current samples: 20
+NEG current samples: 21
+NEG current samples: 22
+NEG current samples: 23
+NEG current samples: 24
+NEG current samples: 25
+NEG current samples: 26
+NEG current samples: 27
+NEG current samples: 28
+NEG current samples: 29
+NEG current samples: 30
+NEG current samples: 31
+NEG current samples: 32
+NEG current samples: 33
+NEG current samples: 34
+NEG current samples: 35
+NEG current samples: 36
+NEG current samples: 37
+NEG current samples: 38
+NEG current samples: 39
+NEG current samples: 40
+NEG current samples: 41
+NEG current samples: 42
+NEG current samples: 43
+NEG current samples: 44
+NEG current samples: 45
+NEG current samples: 46
+NEG current samples: 47
+NEG current samples: 48
+NEG current samples: 49
+NEG current samples: 50
+NEG current samples: 51
+NEG current samples: 52
+NEG current samples: 53
+NEG current samples: 54
+NEG current samples: 55
+NEG current samples: 56
+NEG current samples: 57
+NEG current samples: 58
+NEG current samples: 59
+NEG current samples: 60
+NEG current samples: 61
+NEG current samples: 62
+NEG current samples: 63
+NEG current samples: 64
+NEG current samples: 65
+NEG current samples: 66
+NEG current samples: 67
+NEG current samples: 68
+NEG current samples: 69
+NEG current samples: 70
+NEG current samples: 71
+NEG current samples: 72
+NEG current samples: 73
+NEG current samples: 74
+NEG current samples: 75
+NEG current samples: 76
+NEG current samples: 77
+NEG current samples: 78
+NEG current samples: 79
+NEG current samples: 80
+NEG current samples: 81
+NEG current samples: 82
+NEG current samples: 83
+NEG current samples: 84
+NEG current samples: 85
+NEG current samples: 86
+NEG current samples: 87
+NEG current samples: 88
+NEG current samples: 89
+NEG current samples: 90
+NEG current samples: 91
+NEG current samples: 92
+NEG current samples: 93
+NEG current samples: 94
+NEG current samples: 95
+NEG current samples: 96
+NEG current samples: 97
+NEG current samples: 98
+NEG current samples: 99
+NEG current samples: 100
+NEG current samples: 101
+NEG current samples: 102
+NEG current samples: 103
+NEG current samples: 104
+NEG current samples: 105
+NEG current samples: 106
+NEG current samples: 107
+NEG current samples: 108
+NEG current samples: 109
+NEG current samples: 110
+NEG current samples: 111
+NEG current samples: 112
+NEG current samples: 113
+NEG current samples: 114
+NEG current samples: 115
+NEG current samples: 116
+NEG current samples: 117
+NEG current samples: 118
+NEG current samples: 119
+NEG count : acceptanceRatio    119 : 9.51796e-06
+
+Precalculation time: 1.2
+
++----+---------+---------+
+|  N |    HR   |    FA   |
++----+---------+---------+
+
+|   1|        1| 0.378151|
++----+---------+---------+
+
+END>
+
+Training until now has taken 0 days 0 hours 2 minutes 5 seconds.
+
+===== TRAINING 11-stage =====
+<BEGIN
+POS current samples: 1
+POS current samples: 2
+POS current samples: 3
+POS current samples: 4
+POS current samples: 5
+POS current samples: 6
+POS current samples: 7
+POS current samples: 8
+POS current samples: 9
+POS current samples: 10
+POS current samples: 11
+POS current samples: 12
+POS current samples: 13
+POS current samples: 14
+POS current samples: 15
+POS current samples: 16
+POS current samples: 17
+POS current samples: 18
+POS current samples: 19
+POS current samples: 20
+POS current samples: 21
+POS current samples: 22
+POS current samples: 23
+POS current samples: 24
+POS current samples: 25
+POS current samples: 26
+POS current samples: 27
+POS current samples: 28
+POS current samples: 29
+POS current samples: 30
+POS current samples: 31
+POS current samples: 32
+POS current samples: 33
+POS current samples: 34
+POS current samples: 35
+POS current samples: 36
+POS current samples: 37
+POS current samples: 38
+POS current samples: 39
+POS current samples: 40
+POS current samples: 41
+POS current samples: 42
+POS current samples: 43
+POS current samples: 44
+POS current samples: 45
+POS current samples: 46
+POS current samples: 47
+POS current samples: 48
+POS current samples: 49
+POS current samples: 50
+POS current samples: 51
+POS current samples: 52
+POS current samples: 53
+POS current samples: 54
+POS current samples: 55
+POS current samples: 56
+POS current samples: 57
+POS current samples: 58
+POS current samples: 59
+POS current samples: 60
+POS current samples: 61
+POS current samples: 62
+POS current samples: 63
+POS current samples: 64
+POS current samples: 65
+POS current samples: 66
+POS current samples: 67
+POS current samples: 68
+POS count : consumed   68 : 68
 
 Invalid SOS parameters for sequential JPEG
 
@@ -1637,12 +2443,224 @@ Invalid SOS parameters for sequential JPEG
 
 Invalid SOS parameters for sequential JPEG
 
+NEG current samples: 1
+NEG current samples: 2
+NEG current samples: 3
+NEG current samples: 4
+NEG current samples: 5
+NEG current samples: 6
+NEG current samples: 7
+NEG current samples: 8
+NEG current samples: 9
+NEG current samples: 10
+NEG current samples: 11
+NEG current samples: 12
+NEG current samples: 13
+NEG current samples: 14
+NEG current samples: 15
+NEG current samples: 16
+NEG current samples: 17
+NEG current samples: 18
+NEG current samples: 19
+NEG current samples: 20
+NEG current samples: 21
+NEG current samples: 22
+NEG current samples: 23
+NEG current samples: 24
+NEG current samples: 25
+NEG current samples: 26
+NEG current samples: 27
+NEG current samples: 28
+NEG current samples: 29
+NEG current samples: 30
+NEG current samples: 31
+NEG current samples: 32
+NEG current samples: 33
+NEG current samples: 34
+NEG current samples: 35
+NEG current samples: 36
+NEG current samples: 37
+NEG current samples: 38
+NEG current samples: 39
+NEG current samples: 40
+NEG current samples: 41
+NEG current samples: 42
+NEG current samples: 43
+NEG current samples: 44
+NEG current samples: 45
+NEG current samples: 46
+NEG current samples: 47
+NEG current samples: 48
+NEG current samples: 49
+NEG current samples: 50
+NEG current samples: 51
+NEG current samples: 52
+NEG current samples: 53
+NEG current samples: 54
+NEG current samples: 55
+NEG current samples: 56
+NEG current samples: 57
+NEG current samples: 58
+NEG current samples: 59
+NEG current samples: 60
+NEG current samples: 61
+NEG current samples: 62
+NEG current samples: 63
+NEG current samples: 64
+NEG current samples: 65
+NEG current samples: 66
+NEG current samples: 67
+NEG current samples: 68
+NEG current samples: 69
+NEG current samples: 70
+NEG current samples: 71
+NEG current samples: 72
+NEG current samples: 73
+NEG current samples: 74
+NEG current samples: 75
+NEG current samples: 76
+NEG current samples: 77
+NEG current samples: 78
+NEG current samples: 79
+NEG current samples: 80
+NEG current samples: 81
+NEG current samples: 82
+NEG current samples: 83
+NEG current samples: 84
+NEG current samples: 85
+NEG current samples: 86
+NEG current samples: 87
+NEG current samples: 88
+NEG current samples: 89
+NEG current samples: 90
+NEG current samples: 91
+NEG current samples: 92
+NEG current samples: 93
+NEG current samples: 94
+NEG current samples: 95
+NEG current samples: 96
+NEG current samples: 97
+NEG current samples: 98
+NEG current samples: 99
+NEG current samples: 100
+NEG current samples: 101
+NEG current samples: 102
+NEG current samples: 103
+NEG current samples: 104
+NEG current samples: 105
+NEG current samples: 106
+NEG current samples: 107
+NEG current samples: 108
+NEG current samples: 109
+NEG current samples: 110
+NEG current samples: 111
+NEG current samples: 112
+NEG current samples: 113
+NEG current samples: 114
+NEG current samples: 115
+NEG current samples: 116
+NEG current samples: 117
+NEG current samples: 118
+NEG current samples: 119
+NEG count : acceptanceRatio    119 : 5.1571e-06
+
+Precalculation time: 1.171
+
++----+---------+---------+
+|  N |    HR   |    FA   |
++----+---------+---------+
+
+|   1|        1|        1|
++----+---------+---------+
+
+|   2|        1| 0.327731|
++----+---------+---------+
+
+END>
+
+Training until now has taken 0 days 0 hours 4 minutes 5 seconds.
+
+===== TRAINING 12-stage =====
+<BEGIN
+POS current samples: 1
+POS current samples: 2
+POS current samples: 3
+POS current samples: 4
+POS current samples: 5
+POS current samples: 6
+POS current samples: 7
+POS current samples: 8
+POS current samples: 9
+POS current samples: 10
+POS current samples: 11
+POS current samples: 12
+POS current samples: 13
+POS current samples: 14
+POS current samples: 15
+POS current samples: 16
+POS current samples: 17
+POS current samples: 18
+POS current samples: 19
+POS current samples: 20
+POS current samples: 21
+POS current samples: 22
+POS current samples: 23
+POS current samples: 24
+POS current samples: 25
+POS current samples: 26
+POS current samples: 27
+POS current samples: 28
+POS current samples: 29
+POS current samples: 30
+POS current samples: 31
+POS current samples: 32
+POS current samples: 33
+POS current samples: 34
+POS current samples: 35
+POS current samples: 36
+POS current samples: 37
+POS current samples: 38
+POS current samples: 39
+POS current samples: 40
+POS current samples: 41
+POS current samples: 42
+POS current samples: 43
+POS current samples: 44
+POS current samples: 45
+POS current samples: 46
+POS current samples: 47
+POS current samples: 48
+POS current samples: 49
+POS current samples: 50
+POS current samples: 51
+POS current samples: 52
+POS current samples: 53
+POS current samples: 54
+POS current samples: 55
+POS current samples: 56
+POS current samples: 57
+POS current samples: 58
+POS current samples: 59
+POS current samples: 60
+POS current samples: 61
+POS current samples: 62
+POS current samples: 63
+POS current samples: 64
+POS current samples: 65
+POS current samples: 66
+POS current samples: 67
+POS current samples: 68
+POS count : consumed   68 : 68
+
+Invalid SOS parameters for sequential JPEG
+
 Invalid SOS parameters for sequential JPEG
 
 Invalid SOS parameters for sequential JPEG
 
-Invalid SOS parameters for sequential 
-JPEG
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
 
 Invalid SOS parameters for sequential JPEG
 
@@ -1787,9 +2805,11 @@ NEG current samples: 114
 NEG current samples: 115
 NEG current samples: 116
 NEG current samples: 117
-NEG count : acceptanceRatio    117 : 2.10481e-06
+NEG current samples: 118
+NEG current samples: 119
+NEG count : acceptanceRatio    119 : 1.98063e-06
 
-Precalculation time: 1.037
+Precalculation time: 1.184
 
 +----+---------+---------+
 |  N |    HR   |    FA   |
@@ -1798,14 +2818,14 @@ Precalculation time: 1.037
 |   1|        1|        1|
 +----+---------+---------+
 
-|   2|        1| 0.316239|
+|   2|        1| 0.361345|
 +----+---------+---------+
 
 END>
 
-Training until now has taken 0 days 0 hours 7 minutes 58 seconds.
+Training until now has taken 0 days 0 hours 9 minutes 55 seconds.
 
-===== TRAINING 9-stage =====
+===== TRAINING 13-stage =====
 <BEGIN
 POS current samples: 1
 POS current samples: 2
@@ -1855,7 +2875,119 @@ POS current samples: 45
 POS current samples: 46
 POS current samples: 47
 POS current samples: 48
-POS count : consumed   48 : 48
+POS current samples: 49
+POS current samples: 50
+POS current samples: 51
+POS current samples: 52
+POS current samples: 53
+POS current samples: 54
+POS current samples: 55
+POS current samples: 56
+POS current samples: 57
+POS current samples: 58
+POS current samples: 59
+POS current samples: 60
+POS current samples: 61
+POS current samples: 62
+POS current samples: 63
+POS current samples: 64
+POS current samples: 65
+POS current samples: 66
+POS current samples: 67
+POS current samples: 68
+POS count : consumed   68 : 68
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequen
+tial JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for 
+sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
+
+Invalid SOS parameters for sequential JPEG
 
 Invalid SOS parameters for sequential JPEG
 
@@ -1871,5 +3003,211 @@ NEG current samples: 3
 NEG current samples: 4
 NEG current samples: 5
 NEG current samples: 6
-NEG count : acceptanceRatio    6 : 8.17435e-07
+NEG current samples: 7
+NEG current samples: 8
+NEG current samples: 9
+NEG current samples: 10
+NEG current samples: 11
+NEG current samples: 12
+NEG current samples: 13
+NEG current samples: 14
+NEG current samples: 15
+NEG current samples: 16
+NEG current samples: 17
+NEG current samples: 18
+NEG current samples: 19
+NEG current samples: 20
+NEG current samples: 21
+NEG current samples: 22
+NEG current samples: 23
+NEG current samples: 24
+NEG current samples: 25
+NEG current samples: 26
+NEG current samples: 27
+NEG current samples: 28
+NEG current samples: 29
+NEG current samples: 30
+NEG current samples: 31
+NEG current samples: 32
+NEG current samples: 33
+NEG current samples: 34
+NEG current samples: 35
+NEG current samples: 36
+NEG current samples: 37
+NEG current samples: 38
+NEG current samples: 39
+NEG current samples: 40
+NEG current samples: 41
+NEG current samples: 42
+NEG current samples: 43
+NEG current samples: 44
+NEG current samples: 45
+NEG current samples: 46
+NEG current samples: 47
+NEG current samples: 48
+NEG current samples: 49
+NEG current samples: 50
+NEG current samples: 51
+NEG current samples: 52
+NEG current samples: 53
+NEG current samples: 54
+NEG current samples: 55
+NEG current samples: 56
+NEG current samples: 57
+NEG current samples: 58
+NEG current samples: 59
+NEG current samples: 60
+NEG current samples: 61
+NEG current samples: 62
+NEG current samples: 63
+NEG current samples: 64
+NEG current samples: 65
+NEG current samples: 66
+NEG current samples: 67
+NEG current samples: 68
+NEG current samples: 69
+NEG current samples: 70
+NEG current samples: 71
+NEG current samples: 72
+NEG current samples: 73
+NEG current samples: 74
+NEG current samples: 75
+NEG current samples: 76
+NEG current samples: 77
+NEG current samples: 78
+NEG current samples: 79
+NEG current samples: 80
+NEG current samples: 81
+NEG current samples: 82
+NEG current samples: 83
+NEG current samples: 84
+NEG current samples: 85
+NEG current samples: 86
+NEG current samples: 87
+NEG current samples: 88
+NEG current samples: 89
+NEG current samples: 90
+NEG current samples: 91
+NEG current samples: 92
+NEG current samples: 93
+NEG current samples: 94
+NEG current samples: 95
+NEG current samples: 96
+NEG current samples: 97
+NEG current samples: 98
+NEG current samples: 99
+NEG current samples: 100
+NEG current samples: 101
+NEG current samples: 102
+NEG current samples: 103
+NEG current samples: 104
+NEG current samples: 105
+NEG current samples: 106
+NEG current samples: 107
+NEG current samples: 108
+NEG current samples: 109
+NEG current samples: 110
+NEG current samples: 111
+NEG current samples: 112
+NEG current samples: 113
+NEG current samples: 114
+NEG current samples: 115
+NEG current samples: 116
+NEG current samples: 117
+NEG current samples: 118
+NEG current samples: 119
+NEG count : acceptanceRatio    119 : 7.41832e-07
+
+Precalculation time: 1.181
+
++----+---------+---------+
+|  N |    HR   |    FA   |
++----+---------+---------+
+
+|   1|        1|        1|
++----+---------+---------+
+
+|   2|        1| 0.411765|
++----+---------+---------+
+
+END>
+
+Training until now has taken 0 days 0 hours 23 minutes 43 seconds.
+
+===== TRAINING 14-stage =====
+<BEGIN
+POS current samples: 1
+POS current samples: 2
+POS current samples: 3
+POS current samples: 4
+POS current samples: 5
+POS current samples: 6
+POS current samples: 7
+POS current samples: 8
+POS current samples: 9
+POS current samples: 10
+POS current samples: 11
+POS current samples: 12
+POS current samples: 13
+POS current samples: 14
+POS current samples: 15
+POS current samples: 16
+POS current samples: 17
+POS current samples: 18
+POS current samples: 19
+POS current samples: 20
+POS current samples: 21
+POS current samples: 22
+POS current samples: 23
+POS current samples: 24
+POS current samples: 25
+POS current samples: 26
+POS current samples: 27
+POS current samples: 28
+POS current samples: 29
+POS current samples: 30
+POS current samples: 31
+POS current samples: 32
+POS current samples: 33
+POS current samples: 34
+POS current samples: 35
+POS current samples: 36
+POS current samples: 37
+POS current samples: 38
+POS current samples: 39
+POS current samples: 40
+POS current samples: 41
+POS current samples: 42
+POS current samples: 43
+POS current samples: 44
+POS current samples: 45
+POS current samples: 46
+POS current samples: 47
+POS current samples: 48
+POS current samples: 49
+POS current samples: 50
+POS current samples: 51
+POS current samples: 52
+POS current samples: 53
+POS current samples: 54
+POS current samples: 55
+POS current samples: 56
+POS current samples: 57
+POS current samples: 58
+POS current samples: 59
+POS current samples: 60
+POS current samples: 61
+POS current samples: 62
+POS current samples: 63
+POS current samples: 64
+POS current samples: 65
+POS current samples: 66
+POS current samples: 67
+POS current samples: 68
+POS count : consumed   68 : 68
+
+Invalid SOS parameters for sequential JPEG
+
+NEG current samples: 1
+NEG count : acceptanceRatio    1 : 2.38419e-07
 Required leaf false alarm rate achieved. Branch training terminated.
