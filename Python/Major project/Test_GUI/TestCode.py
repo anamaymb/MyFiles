@@ -3,7 +3,7 @@ import cv2
 
 face_cascade = cv2.CascadeClassifier('cascade.xml')
 
-img = cv2.imread('D:/GITHUB/MyFiles-master/Python/Major project/RGB_thermal/thermal_9.jpg')
+img = cv2.imread('D:/GITHUB/MyFiles-master/Python/Major project/RGB_thermal/thermal_6.jpg')
 
 img = cv2.resize(img, (500, 500))
 

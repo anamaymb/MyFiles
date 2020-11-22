@@ -27,8 +27,10 @@ def function(event, x, y, flags, params):
 # a = cv2.imread("solar.jpg",-1)
 # z = cv2.imread("solar.jpg",-1)
 # ret, a = cap.read()
-a = cv2.imread("thermal_2.jpg",-1)
-z = cv2.imread("thermal_2.jpg",-1)
+a = cv2.imread('D:/GITHUB/MyFiles-master/Python/Major project/RGB_thermal/thermal_10.jpg',-1)
+z = cv2.imread('D:/GITHUB/MyFiles-master/Python/Major project/RGB_thermal/thermal_10.jpg',-1)
+a = cv2.resize(a, (500, 500))
+z = cv2.resize(z, (500, 500))
 
 cv2.namedWindow('image')
 cv2.setMouseCallback('image', function)
