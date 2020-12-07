@@ -24,11 +24,11 @@ def function(event, x, y, flags, params):
             max[2]=a[y,x,2]
 
 
-# a = cv2.imread("solar.jpg",-1)
-# z = cv2.imread("solar.jpg",-1)
+a = cv2.imread("solar.jpg",-1)
+z = cv2.imread("solar.jpg",-1)
 # ret, a = cap.read()
-a = cv2.imread("thermal_4.jpg",-1)
-z = cv2.imread("thermal_4.jpg",-1)
+# a = cv2.imread("thermal_4.jpg",-1)
+# z = cv2.imread("thermal_4.jpg",-1)
 
 cv2.namedWindow('image')
 cv2.setMouseCallback('image', function)
@@ -45,8 +45,8 @@ while(1):
     k = cv2.waitKey(20) & 0xFF
     if k == 27:
         break
-    elif k == ord('a'):
-        print (mouseX,mouseY)
+    # elif k == ord('a'):
+    #     print (mouseX,mouseY)
 
 print(min)
 print(max)
