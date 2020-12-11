@@ -1,3 +1,7 @@
+
+
+# print (moreThan4.flag)
+
 import cv2
 import tkinter
 from tkinter import *
@@ -5,6 +9,13 @@ top = tkinter.Tk()
 top.geometry('900x600')
 top.title("LIFT")
 top['background']='#333333'
+
+
+face_cascade=cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+
+eye_cascade=cv2.CascadeClassifier('haarcascade_eye.xml')
+
+
 
 prevf=0
 flag=0
@@ -17,7 +28,7 @@ lbl3 = Label(top, text = " Please \nWear \na mask ..!!  \U0001F637",font =("Mono
 
 lbl4 = Label(top, text = " Please \nStep Out \nof Lift ..!!",font =("Monotype Corsiva", 109),background='#333333',foreground='#AAAAAA') 
 
-lbl5 = Label(top, text = " Not more than 2 people \n allowed..!! \n Please Step Out \nof Lift ..!!",font =("Monotype Corsiva", 79),background='#333333',foreground='#AAAAAA') 
+lbl5 = Label(top, text = " Not more than 4 people \n allowed..!! \n Please Step Out \nof Lift ..!!",font =("Monotype Corsiva", 79),background='#333333',foreground='#AAAAAA') 
 
 l = Label(top, text = " Welcome \nto \nLift ",font =("Monotype Corsiva", 109),background='#333333',foreground='#AAAAAA') 
 
@@ -69,60 +80,37 @@ def messege():
 
     l.pack()
 
+messege()
 
 # top.after(2000, flr)
 # top.after(4000, maskWarning)
 # top.after(6000, morePeopleWarning)
-
-face_cascade=cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-eye_cascade=cv2.CascadeClassifier('haarcascade_eye.xml')
-
-cap = cv2.VideoCapture(0)
-
+flag=0
+# cap = cv2.VideoCapture(0)
 def my_mainloop():
-    global f,prevf,flag
-    # print ("Hello World!")
-
-    # face_cascade=cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-    # eye_cascade=cv2.CascadeClassifier('haarcascade_eye.xml')
-
-    ret, img = cap.read()
+    print ("Hello World!")
     
-    gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-    faces=face_cascade.detectMultiScale(gray,1.3,5)
-    f=0
+    # top.after(1000, flr)
+    # top.after(2000, maskWarning)
+    # top.after(3000, morePeopleWarning)
+   
+     moreThan4
+    if moreThan4.flag==0:
+        flr()
+    if moreThan4.flag==1:
+        morePeopleWarning()
+    k = cv2.waitKey(1)
 
-    for[x,y,w,h] in faces:
-        f=f+1
-        img= cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),3)
+    if(k==27):
+        return
 
-    if f!=prevf:
-        if f>2:
-            flag=1
-            morePeopleWarning()
-        else:
-            flag=0
-            messege()
-        prevf=f
-    
-    print(flag)
-    cv2.imshow('Video',img)
+    top.after(1, my_mainloop)    
 
-    
-
-    # if flag==0:
-    #     messege()
-    # if flag==1:
-    #     morePeopleWarning()
-    # k = cv2.waitKey(1)
-
-    # if(k==27):
-    #     cv2.destroyAllWindows()
-    #     cap.release()
-
-    top.after(10, my_mainloop)    
-
+# cv2.destroyAllWindows()
+# cap.release()
 top.after(1, my_mainloop)
+
+# while True:
 
 
 top.mainloop()
